@@ -21,25 +21,34 @@ const { description, title } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+
+	<body class="relative bg-neutral-950 text-black dark:text-white">
 		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
 	</body>
 </html>
 
-<style>
+<style is:global>
 	:root {
 		color-scheme: light dark;
 	}
 
 	html {
-		font-family: 'Onest Variable', system-ui, sans-serif;
-	}
-	body {
-		background: #050505;
-		display: flex;
-		flex-direction: column;
-		height: 100vh;
-	}
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overscroll-behavior: none;
+      }
+
+	  @media (prefers-reduce-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	  }
 </style>

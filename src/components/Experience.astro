@@ -1,0 +1,35 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: 'Junio 2015 - Octubre 2022',
+        title: 'Senior Designer',
+        company: 'JumpittLabs',
+        description: 'Encargado del area de diseño donde desarrolle un gran conocimiento en Sistemas de Diseño y Frontend al estar siempre en contacto con los mejores desarrolladores de la zona.',
+    },
+    {
+        date: 'Junio 2020 - Septiembre 2022',
+        title: 'User Interface Designer',
+        company: 'Sovos Autoriza',
+        description: 'Dentro de Jumpitt era encargado de los diseños para Sovos Autoriza generando una plataforma de venta de Certificados Digitales (todo tipo de documentos tributarios).',
+    },
+    {
+        date: 'Octubre 2022 - Noviembre 2024',
+        title: 'Senior Designer & Frontend',
+        company: 'icar S.A',
+        description: 'Fue por proyecto de un rebranding de la empresa, poder diseñar y desarrollar las web de sus productos y donde fui un miembro activo en el desarrollo de la app icarWallet',
+    }
+] 
+---
+
+<ol class="grid grid-cols-3">
+    {
+        EXPERIENCE.map(experience => (
+            <li class="ms-5">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }
+</ol>
+
