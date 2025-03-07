@@ -1,5 +1,6 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
+import DownloadIcon from '../components/icons/Download.astro'
 
 const EXPERIENCE = [
     {
@@ -23,13 +24,22 @@ const EXPERIENCE = [
 ] 
 ---
 
-<ol class="grid grid-cols-3">
+<ol class="flex flex-col md:grid md:grid-cols-3 md:gap-4" >
     {
         EXPERIENCE.map(experience => (
-            <li class="ms-5">
+            <li>
                 <ExperienceItem {...experience} />
             </li>
         ))
     }
 </ol>
+
+<div class="flex justify-center">
+    <a href="https://drive.google.com/file/d/1DlhIvuHNuYXKP9RlADyfvVoTb_7Vmvyf/view?usp=sharing" target="_blank">
+        <button type="button" class="hover:cursor-pointer flex items-center animate-bounce gap-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+            <DownloadIcon/>
+            Descargar Carta Recomendación
+        </button>
+    </a>
+</div>
 

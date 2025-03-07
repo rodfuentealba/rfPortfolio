@@ -1,0 +1,105 @@
+---
+import SkillIcon from '../components/icons/Skill.astro'
+import Figma from "./icons/Figma.astro";
+import React from "./icons/React.astro";
+import Notion from "./icons/Notion.astro";
+import Vue from "./icons/Vue.astro";
+import Astr from "./icons/Astr.astro";
+import Illustrator from './icons/Illustrator.astro'
+import Photoshop from './icons/Photoshop.astro'
+
+const TAGS = {
+    FIGMA: {
+        name: "Figma",
+        class: "bg-pink-900 text-pink-300",
+        icon: Figma,
+        with: 'width: 95%',
+        valorate: '4.5'
+    },
+    REACT: {
+        name: "React",
+        class: "bg-blue-900 text-blue-300",
+        icon: React,
+        with:'width: 85%',
+        valorate: '4.6'
+    },
+    VUE: {
+        name: "Vue",
+        class: "bg-green-200 text-green-900",
+        icon: Vue,
+        with:'width: 85%',
+        valorate: '4.3'
+    },
+    ASTR: {
+        name: "Astro",
+        class: "bg-gray-800 text-gray-400",
+        icon: Astr,
+        with:'width: 85%',
+        valorate: '4.8'
+    },
+    NOTION: {
+        name: "Notion",
+        class: "bg-gray-800 text-White-300",
+        icon: Notion,
+        with:'width: 85%',
+        valorate: '4.2'
+    },
+    ADOBEAI: {
+        name: "Adobe Illustrator",
+        class: "bg-orange-400 text-orange-900",
+        icon: Illustrator,
+        with:'width: 95%',
+        valorate: '4.8'
+    },
+    ADOBEPS: {
+        name: "Adobe Photoshop",
+        class: "bg-blue-400 text-blue-900",
+        icon: Photoshop,
+        with:'width: 90%',
+        valorate: '4.5'
+    },
+};
+
+const PILL = [
+    {   
+        tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR]
+    }
+]
+---
+
+<h3 class="text-2xl font-semibold my-8 flex gap-x-2 items-center">
+    <SkillIcon class="size-6"/>
+    Habilidades
+</h3>
+
+{
+    PILL.map(({ tags }) => (
+    <div class="grid grid-col-12 md:grid-cols-2 gap-6 mb-10">
+        {tags.map((tag) => (
+                    <div class="w-full flex flex-row items-center justify-between">
+                        <span
+                        class={`flex items-start rounded-full font-bold text-sm ${tag.class} py-2 px-3 `}
+                        >
+                            <tag.icon class="size-4 mr-1" />
+                            {tag.name}
+                        </span>
+
+                        {/* <div class="w-full mb-6">
+                            <dd class="flex items-center mt-1">
+                                <div class="w-full bg-gray-200 rounded-sm h-1 dark:bg-gray-700 me-2">
+                                    <div class="bg-yellow-200 animate-pulse scale-from-0 scale-to-100 transform-gpu h-1 rounded-sm dark:bg-yellow-300" style={`${tag.with}`}></div>
+                                </div>
+                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{tag.valorate}%</span>
+                            </dd>
+                        </div> */}
+
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 animate-bounce text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                            </svg>
+                            <p class="ms-2 text-xs text-gray-900 dark:text-white"><span class="font-bold">{tag.valorate}</span> de 5</p>
+                        </div>
+                    </div>
+            ))}
+    </div>
+))}

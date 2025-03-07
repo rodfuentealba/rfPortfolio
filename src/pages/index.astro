@@ -5,11 +5,13 @@ import LinkedInIcon from '../components/icons/LinkedIn.astro'
 import GitHubIcon from '../components/icons/GitHub.astro'
 import IgIcon from '../components/icons/Ig.astro'
 import BriefcaseIcon from '../components/icons/Briefcase.astro'
+import SelfIcon from '../components/icons/Self.astro'
 import CodeIcon from '../components/icons/Code.astro'
 import SocialPill from '../components/SocialPill.astro'
 import Experience from '../components/Experience.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import Projects from '../components/Projects.astro'
+import PersonalInfo from '../components/PersonalInfo.astro'
 
 
 
@@ -21,23 +23,28 @@ import Projects from '../components/Projects.astro'
 	title="Portfolio Rodolfo Fuentealba Diseño UX UI Frontend +9 años de experiencia"
 	description="Contrata a rodfuentealba para darle vida a tus diseños tanto web como móviles o si necesitas generar contenido para RRSS."
 >
-		<main>
-		<SectionContainer class="py-16 md:py-42 px-20">
+		<main class="px-6">
+		<SectionContainer class="py-20 md:py-61 md:px-20">
 			<img 
 			class="rounded-full w-12 h-12 mb-4"
 			src="https://avatars.githubusercontent.com/u/98917628?v=4"
 			alt="rodFuentealba photo">
-			<h1 class="text-white text-4xl font-bold flex flex-row gap-x-4 pb-10">Hola! soy rodFuentealba 
+
+			<div class="flex flex-col gap-x-4 mb-5 md:flex-row md:items-center ">
+
+				<h1 class="text-white text-3xl md:text-3xl lg:text-4xl font-bold flex flex-row">Hola! soy rodFuentealba 
+				</h1>
+				
 				<a 
 				href="https://www.linkedin.com/in/rodfuentealba/"
 				target="_blank"
 				rel="noopener"
-				class="flex justify-center items-center">
+				class="">
 					<Badge>Disponible para trabajar</Badge>	
 				</a>
-			</h1>
+			</div>
 
-			<h2 class="text-2xl text-wrap">
+			<h2 class="text-2xl text-wrap max-w-[700px]">
 				<span class="text-yellow-200/90">Diseñador UX/UI & Frontend - Operador de Drone RPA</span>
 				<span >+9 años de experiencia, desde la ciudad de Valparaíso, Chile 🇨🇱</span>
 				<div class="mt-2">
@@ -58,29 +65,38 @@ import Projects from '../components/Projects.astro'
 				</div>
 			</h2>
 
-			<nav class="flex gap-x-2 mt-8">
+			<nav class="flex gap-2 mt-8 flex-wrap">
 				<SocialPill href="https://www.linkedin.com/in/rodfuentealba/">
-					<LinkedInIcon class="size-5"/>
+					<LinkedInIcon class="size-4 md:size-5"/>
 					LinkedIn
 				</SocialPill>
 				<SocialPill href="https://github.com/rodfuentealba">
-					<GitHubIcon class="size-5"/>
+					<GitHubIcon class="size-4 md:size-5"/>
 					GitHub
 				</SocialPill>
 				<SocialPill href="https://www.instagram.com/rodfuentealbac">
-					<IgIcon class="size-5"/>
+					<IgIcon class="size-4 md:size-5"/>
 					Instagram
 				</SocialPill>
 			</nav>
 		</Section>
 
-		<SectionContainer id="experiencia" class="pb-30">
+		<SectionContainer id="sobre-mi" class="md:pb-30">
+			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+				<SelfIcon class="size-6"/>
+				Sobre Mí
+			</h2>
+			<PersonalInfo />
+		</SectionContainer>
+
+		<SectionContainer id="experiencia" class="pb-10 md:pb-30">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
 				<BriefcaseIcon class="size-6"/>
 				Experiencia Laboral
 			</h2>
 			<Experience />
 		</SectionContainer>
+
 
 		<SectionContainer id="proyectos" class="pb-10">
 			<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">

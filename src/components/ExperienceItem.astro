@@ -9,14 +9,14 @@ interface Props {
 ---
 
 <div class="flex items-center">
-    <div class="z-10 flex items-center justify-center w-6 h-6 bg-green-900 rounded-full ring-0 ring-white  sm:ring-8 dark:ring-green-900 shrink-0">
+    <div class="z-10 flex items-center justify-center w-6 h-6 bg-green-900 rounded-full ring-8 ring-white dark:ring-green-900 shrink-0">
         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="text-green-300"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11 20h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7" /><path d="M9 17h2.5" /><path d="M20 21l2 -2l-2 -2" /><path d="M17 17l-2 2l2 2" /></svg>
     </div>
-    <div class="hidden sm:flex w-full bg-gray-100 h-0.5 dark:bg-gray-800"></div>
+    <div class="hidden md:flex w-full bg-gray-100 h-0.5 dark:bg-gray-800"></div>
 </div>
 <div class="mt-5 sm:pe-8">
     <h4 class="text-sm text-yellow-200 dark:text-yellow-200">{company}</h4>
     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{title}</h3>
     <time class="block mb-5 text-sm font-normal leading-none text-gray-400 dark:text-gray-600">{date}</time>
-    <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty">{description}</p>
+    <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-pretty mb-10">{description}</p>
 </div>
