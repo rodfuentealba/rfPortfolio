@@ -1,6 +1,9 @@
 ---
 import Figma from "./icons/Figma.astro";
 import React from "./icons/React.astro";
+import Ant from "./icons/Ant.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import Vue from "./icons/Vue.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
 
@@ -15,6 +18,21 @@ const TAGS = {
         class: "bg-blue-900 text-blue-300",
         icon: React,
     },
+    ANT: {
+        name: "AntDesign",
+        class: "bg-blue-100 text-blue-400",
+        icon: Ant,
+    },
+    BOOTSTRAP: {
+        name: "Bootstrap",
+        class: "bg-purple-200 text-purple-800",
+        icon: Bootstrap,
+    },
+    VUE: {
+        name: "Vue",
+        class: "bg-green-200 text-green-800",
+        icon: Vue,
+    },
 };
 const PROJECTS = [
     {
@@ -26,33 +44,49 @@ const PROJECTS = [
         tags: [TAGS.FIGMA, TAGS.REACT],
     },
     {
+        title: "Notarisa - Firma de Documentos Digitales autorizados por un notario",
+        description:
+            "Buscamos simplificar la gestión documental, evitando los procesos de impresión, firma manual, envío de documentos, archivos físicos y en general todo proceso que solo nos desvía del foco",
+        link: "https://www.notarisa.cl/",
+        image: "/projects/projectsNotarisa.webp",
+        tags: [TAGS.FIGMA, TAGS.REACT, TAGS.ANT],
+    },
+    {
         title: "Autoriza Sovos - Certificados Digitales autorizados por el SII",
         description:
             "Plataforma en línea para la compra y descarga de certificados digitales, utilizados para firmar documentos electrónicos de manera segura y cumpliendo normativas. Permite a los usuarios adquirir, gestionar y aplicar firmas digitales, agilizando procesos administrativos y garantizando la autenticidad de los documentos",
         link: "https://acepta.com/certificado-digital/",
         image: "/projects/projectsAutoriza.webp",
-        tags: [TAGS.FIGMA, TAGS.REACT],
+        tags: [TAGS.FIGMA, TAGS.REACT , TAGS.BOOTSTRAP],
+    },
+    {
+        title: "Riivi - La primera plataforma gratuita de contenido latinoamericano",
+        description:
+            "Cientos de películas, series y documentales chilenos y una gran selección de los mejores títulos de nuestro continente. Llévanos contigo donde vayas y disfrútanos también en tu computador o smarTV",
+        link: "https://www.youtube.com/watch?v=GqQ42uY5E1o",
+        image: "/projects/projectsRiivi.webp",
+        tags: [TAGS.FIGMA, TAGS.VUE , TAGS.BOOTSTRAP],
     },
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
+<div class="flex flex-col md:grid md:grid-cols-2 gap-8">
     {
         PROJECTS.map(({ image, title, description, tags, link }) => (
-            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-                <div class="w-full md:w-1/2">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <article class="flex flex-col group">
+                <div class="w-full">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
                         <img
                             alt="Proyectos donde eh participado como Rodfuentealba - Diseñador UX/UI"
-                            class="object-cover object-top w-full h-full transition duration-500 sm:h-full md:group-hover:scale-110"
+                            class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
                             loading="lazy"
                             src={image}
                         />
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 md:max-w-lg">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                <div class="w-full">
+                    <h3 class="mt-6 text-2xl font-bold text-gray-800 dark:text-gray-100">
                         {title}
                     </h3>
                     <div class="flex flex-wrap mt-2">
@@ -60,7 +94,7 @@ const PROJECTS = [
                             {tags.map((tag) => (
                                 <li>
                                     <span
-                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 hover:scale-105`}
                                     >
                                         <tag.icon class="size-4" />
                                         {tag.name}

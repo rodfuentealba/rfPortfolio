@@ -1,0 +1,57 @@
+---
+import Logo01 from '../components/logos/Logo01.astro'
+import Logo02 from '../components/logos/Logo02.astro'
+import Logo03 from '../components/logos/Logo03.astro'
+import Logo04 from '../components/logos/Logo04.astro'
+import Logo05 from '../components/logos/Logo05.astro'
+import Logo06 from '../components/logos/Logo06.astro'
+import Logo07 from '../components/logos/Logo07.astro'
+import Logo08 from '../components/logos/Logo08.astro'
+import Logo09 from '../components/logos/Logo09.astro'
+import Logo10 from '../components/logos/Logo10.astro'
+
+const logos = [
+  Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08, Logo09, Logo10
+];
+---
+
+<div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
+    <div class="text-center">
+
+        <!-- Logo Carousel animation -->
+        <div
+            x-data="{}"
+            x-init="$nextTick(() => {
+                let ul = $refs.logos;
+                ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                ul.nextSibling.setAttribute('aria-hidden', 'true');
+            })"
+            class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+        >
+            <ul x-ref="logos" class="flex items-center justify-center md:justify-start [&_li]:mx-10 [&_img]:max-w-none animate-infinite-scroll">
+                {logos.map((Logo) => (
+                    <li>
+                      <Logo class="transition-opacity duration-1000 ease-in-out hover:text-yellow-200 hover:scale-105" />
+                    </li>
+                  ))}
+                {logos.map((Logo) => (
+                    <li>
+                      <Logo class="transition-opacity duration-1000 ease-in-out hover:text-yellow-200 hover:scale-105" />
+                    </li>
+                  ))}
+            </ul>                
+        </div>
+        <!-- End: Logo Carousel animation -->
+        
+    </div>
+
+</div>
+
+<style>
+.animate-infinite-scroll {
+    display: flex;
+    width: max-content;
+    animation: infinite-scroll 25s linear infinite;
+  }
+</style>
+  
