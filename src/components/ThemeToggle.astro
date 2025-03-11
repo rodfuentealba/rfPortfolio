@@ -1,0 +1,38 @@
+---
+
+---
+<button 
+{...Astro.props}
+id="toggle-theme" 
+class="text-2xl px-3 py-1 md:ms-10 font-semibold rounded-xl bg-slate-500/10 text-slate-800 dark:bg-white dark:text-slate-800 transition-colors duration-300 ease-in-out">
+    🌚
+</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('toggle-theme');
+      if (!themeToggle) return; // Si no existe el botón, salir
+  
+      const htmlElement = document.documentElement;
+  
+      // Obtener el tema de localStorage
+      const currentTheme = localStorage.getItem('theme') || 'light';
+  
+      // Aplicar el tema al cargar la página
+      if (currentTheme === 'dark') {
+        htmlElement.classList.add('dark');
+        themeToggle.innerText = '🌝'; // Cambiar texto del botón a "oscuro"
+      } else {
+        themeToggle.innerText = '🌚'; // Cambiar texto del botón a "claro"
+      }
+  
+      // Cambiar el tema al hacer clic
+      themeToggle.addEventListener('click', () => {
+        const newTheme = htmlElement.classList.toggle('dark') ? 'dark' : 'light';
+        themeToggle.innerText = newTheme === 'dark' ? '🌝' : '🌚';
+        localStorage.setItem('theme', newTheme); // Guardar el nuevo tema
+      });
+    });
+  </script>
+  
+  

@@ -1,15 +1,14 @@
 import typography from '@tailwindcss/typography'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [
-      './src/**/*.{astro,html,js,ts,jsx,tsx}',  // Asegúrate de que Tailwind esté buscando en todos los archivos relevantes
-    ],
+  /** @type {import('tailwindcss').Config} */
+  module.exports = {
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	  darkMode: 'class',
     theme: {
       extend: {},
     },
     plugins: [
-      require('@tailwindcss/typography'),  // Añadir el plugin de tipografía
+      require('@tailwindcss/typography'), 
     ],
-  }
+  };
   

@@ -10,27 +10,27 @@ import Link from "./icons/Link.astro";
 const TAGS = {
     FIGMA: {
         name: "Figma",
-        class: "bg-pink-900 text-pink-300",
+        class: "bg-pink-100 text-pink-500 dark:bg-pink-900 dark:text-pink-300",
         icon: Figma,
     },
     REACT: {
         name: "React",
-        class: "bg-blue-900 text-blue-300",
+        class: "bg-cyan-100 text-cyan-600 dark:bg-cyan-900 dark:text-cyan-300",
         icon: React,
     },
     ANT: {
         name: "AntDesign",
-        class: "bg-blue-100 text-blue-400",
+        class: "bg-blue-100 text-blue-400 dark:bg-blue-900 dark:text-blue-300",
         icon: Ant,
     },
     BOOTSTRAP: {
         name: "Bootstrap",
-        class: "bg-purple-200 text-purple-800",
+        class: "bg-purple-100 text-purple-500 dark:bg-purple-300 dark:text-purple-800",
         icon: Bootstrap,
     },
     VUE: {
         name: "Vue",
-        class: "bg-green-200 text-green-800",
+        class: "bg-green-100 text-green-800 dark:bg-green-300 dark:text-green-700",
         icon: Vue,
     },
 };
@@ -57,7 +57,7 @@ const PROJECTS = [
             "Plataforma en línea para la compra y descarga de certificados digitales, utilizados para firmar documentos electrónicos de manera segura y cumpliendo normativas. Permite a los usuarios adquirir, gestionar y aplicar firmas digitales, agilizando procesos administrativos y garantizando la autenticidad de los documentos",
         link: "https://acepta.com/certificado-digital/",
         image: "/projects/projectsAutoriza.webp",
-        tags: [TAGS.FIGMA, TAGS.REACT , TAGS.BOOTSTRAP],
+        tags: [TAGS.FIGMA, TAGS.BOOTSTRAP , TAGS.REACT],
     },
     {
         title: "Riivi - La primera plataforma gratuita de contenido latinoamericano",
@@ -75,7 +75,7 @@ const PROJECTS = [
         PROJECTS.map(({ image, title, description, tags, link }) => (
             <article class="flex flex-col group">
                 <div class="w-full">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform hover:shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 lg:hover:bg-gray-800/50">
                         <img
                             alt="Proyectos donde eh participado como Rodfuentealba - Diseñador UX/UI"
                             class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
