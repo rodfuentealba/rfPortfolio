@@ -1,28 +1,37 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
 import DownloadIcon from '../components/icons/Download.astro'
+import BriefcaseIcon from '../components/icons/Briefcase.astro'
+
+const { t } = Astro.props;
 
 const EXPERIENCE = [
     {
-        date: 'Junio 2015 - Octubre 2022',
+        date: t.exp01.date1,
         title: 'Senior Designer (UI/UX)',
         company: 'JumpittLabs',
-        description: 'Encargado del area de diseño donde desarrolle un gran conocimiento en Sistemas de Diseño y Frontend al estar siempre en contacto con los mejores desarrolladores de la zona.',
+        description: t.exp01.exp1,
     },
     {
-        date: 'Junio 2020 - Septiembre 2022',
+        date: t.exp02.date1,
         title: 'User Interface Designer',
         company: 'Sovos Autoriza',
-        description: 'Dentro de Jumpitt era encargado de los diseños para Sovos Autoriza generando una plataforma de venta de Certificados Digitales (todo tipo de documentos tributarios).',
+        description: t.exp02.exp1,
     },
     {
-        date: 'Octubre 2022 - Noviembre 2024',
+        date: t.exp03.date1,
         title: 'Senior Designer & Frontend',
         company: 'icar S.A',
-        description: 'Fue por proyecto de un rebranding de la empresa, poder diseñar y desarrollar las web de sus productos y donde fui un miembro activo en el desarrollo de la app icarWallet',
+        description: t.exp03.exp1,
     }
 ] 
+
 ---
+
+<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+    <BriefcaseIcon class="size-6"/>
+    Experiencia Laboral
+</h2>
 
 <ol class="flex flex-col md:grid md:grid-cols-3 md:gap-4" >
     {
@@ -38,7 +47,7 @@ const EXPERIENCE = [
     <a href="https://drive.google.com/file/d/1DlhIvuHNuYXKP9RlADyfvVoTb_7Vmvyf/view?usp=sharing" target="_blank">
         <button type="button" class="hover:cursor-pointer flex items-center animate-bounce gap-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
             <DownloadIcon/>
-            Descargar Carta Recomendación
+            {t.download}
         </button>
     </a>
 </div>

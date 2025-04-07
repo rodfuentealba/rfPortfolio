@@ -1,0 +1,77 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "projects": "Projects",
+    "experiences": "Experience",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "avalaible": "Available for work",
+    "greeting": "Hi! I'm",
+    "name": "rodFuentealba",
+    "title": "UX/UI Designer & Frontend",
+    "text": "with 9+ years of experience, based in Valparaíso, Chile 🇨🇱",
+    "ds": "Specialized in Design Systems",
+    "figma": "Figma"
+  },
+  "about": {
+    "name": "About Me",
+    "title": "UX/UI Designer",
+    "title2": "& Frontend",
+    "text01": "Hi! I'm Rodolfo Fuentealba Cortes, but my friends call me Rod.",
+    "text02": "For over 9 years, I've specialized in the digital world, focusing on User Experience (UX) & User Interface (UI)."
+  },
+  "achievements": {
+    "title": "Achievements",
+    "a1": "In 2015, I participated in the development of an app for Arturo Vidal, a project that received great media attention.",
+    "a2": "That same year, we developed an app called Workei, a more inclusive and fair option for job searching.",
+    "a3": "In 2019, I also won third place in the APEC APP Challenge with the app REVOO, designed to build networking connections.",
+    "vm": "see more"
+  },
+  "skill": {
+    "name": "Skills"
+  },
+  "experience": {
+    "exp01": {
+      "date1": "June 2015 - October 2022",
+      "exp1": "Head of the design department where I developed strong knowledge in Design Systems and Frontend by working closely with top developers in the area."
+    },
+    "exp02": {
+      "date1": "June 2020 - September 2022",
+      "exp1": "Within Jumpitt, I was in charge of the designs for Sovos Autoriza, creating a platform for the sale of Digital Certificates (all kinds of tax documents)."
+    },
+    "exp03": {
+      "date1": "October 2022 - November 2024",
+      "exp1": "A rebranding project where I designed and developed websites for their products and actively contributed to the development of the icarWallet app."
+    },
+    "download": "Download Recommendation Letter"
+  },
+  "projects": {
+    "title": "Projects",
+    "more": "Learn more",
+    "project1": {
+      "title": "icar Wallet - Access your vehicle documents",
+      "description": "Web and mobile platform developed with React components, designed for fast and easy access to digital certificates and vehicle documents. The entire visual development was conceptualized and designed in Figma, ensuring an intuitive and efficient experience."
+    },
+    "project2": {
+      "title": "Notarisa - Digitally notarized document signing",
+      "description": "We aim to simplify document management, avoiding the need for printing, manual signing, sending documents, physical files, and any process that distracts us from our main focus."
+    },
+    "project3": {
+      "title": "Sovos Autoriza - Digital Certificates authorized by the SII",
+      "description": "Online platform for purchasing and downloading digital certificates used to sign electronic documents securely and in compliance with regulations. Allows users to acquire, manage, and apply digital signatures, streamlining administrative processes and ensuring document authenticity."
+    },
+    "project4": {
+      "title": "Riivi - The first free platform for Latin American content",
+      "description": "Hundreds of Chilean movies, series, and documentaries, along with a great selection of the best titles from our continent. Take us wherever you go and enjoy on your computer or smart TV."
+    }
+  },
+  "build": {
+    "text": "👨🏽‍💻 This site was built using"
+  },
+  "footer": {
+    "rights": "Almost all rights reserved."
+  }
+}

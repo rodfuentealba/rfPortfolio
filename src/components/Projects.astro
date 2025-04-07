@@ -6,6 +6,9 @@ import Bootstrap from "./icons/Bootstrap.astro";
 import Vue from "./icons/Vue.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
+import CodeIcon from '../components/icons/Code.astro'
+
+const { t } = Astro.props;
 
 const TAGS = {
     FIGMA: {
@@ -36,39 +39,40 @@ const TAGS = {
 };
 const PROJECTS = [
     {
-        title: "Wallet iCar - Accede a tu documentación vehicular",
-        description:
-            "Plataforma web y mobile desarrolladas con componentes en React, diseñadas para un acceso rápido y sencillo a certificados digitales y documentación vehicular. Todo el desarrollo visual fue conceptualizado y diseñado en Figma, asegurando una experiencia intuitiva y eficiente",
+        title: t.project1.title,
+        description: t.project1.description,
         link: "https://apps.apple.com/cl/app/wallet-icar/id6466432932",
         image: "/projects/projectsWalletMobile.webp",
         tags: [TAGS.FIGMA, TAGS.REACT],
     },
     {
-        title: "Notarisa - Firma de Documentos Digitales autorizados por un notario",
-        description:
-            "Buscamos simplificar la gestión documental, evitando los procesos de impresión, firma manual, envío de documentos, archivos físicos y en general todo proceso que solo nos desvía del foco",
+        title: t.project2.title,
+        description: t.project2.description,
         link: "https://www.notarisa.cl/",
         image: "/projects/projectsNotarisa.webp",
         tags: [TAGS.FIGMA, TAGS.REACT, TAGS.ANT],
     },
     {
-        title: "Autoriza Sovos - Certificados Digitales autorizados por el SII",
-        description:
-            "Plataforma en línea para la compra y descarga de certificados digitales, utilizados para firmar documentos electrónicos de manera segura y cumpliendo normativas. Permite a los usuarios adquirir, gestionar y aplicar firmas digitales, agilizando procesos administrativos y garantizando la autenticidad de los documentos",
+        title: t.project3.title,
+        description: t.project3.description,
         link: "https://acepta.com/certificado-digital/",
         image: "/projects/projectsAutoriza.webp",
         tags: [TAGS.FIGMA, TAGS.BOOTSTRAP , TAGS.REACT],
     },
     {
-        title: "Riivi - La primera plataforma gratuita de contenido latinoamericano",
-        description:
-            "Cientos de películas, series y documentales chilenos y una gran selección de los mejores títulos de nuestro continente. Llévanos contigo donde vayas y disfrútanos también en tu computador o smarTV",
+        title: t.project4.title,
+        description: t.project4.description,
         link: "https://www.youtube.com/watch?v=GqQ42uY5E1o",
         image: "/projects/projectsRiivi.webp",
         tags: [TAGS.FIGMA, TAGS.VUE , TAGS.BOOTSTRAP],
     },
 ];
 ---
+
+<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+    <CodeIcon class="size-6"/>
+    {t.title}
+</h2>
 
 <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
     {
@@ -110,7 +114,7 @@ const PROJECTS = [
                             {link && (
                                 <LinkButton href={link}>
                                     <Link class="size-4" />
-                                    Saber más
+                                    {t.more}
                                 </LinkButton>
                             )}
                         </footer>

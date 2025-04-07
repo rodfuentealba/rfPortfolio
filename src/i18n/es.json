@@ -1,0 +1,78 @@
+{
+    "navbar": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "projects": "Proyectos",
+      "experiences": "Experiencia",
+      "contact": "Contacto",
+      "language": "Idioma"
+    },
+    "hero": {
+      "avalaible": "Disponible para trabajar",
+      "greeting": "Hola! soy",
+      "name": "rodFuentealba",
+      "title": "Diseñador UX/UI & Frontend",
+      "text": "con +9 años de experiencia, desde la ciudad de Valparaíso, Chile 🇨🇱",
+      "ds": "Especializado en Sistemas de Diseño",
+      "figma": "Figma"
+    },
+    "about": {
+      "name": "Sobre mí",
+      "title": "Diseñador UX/UI",
+      "title2": "& Frontend",
+      "text01": "¡Hola! Soy Rodolfo Fuentealba Cortes, pero mis amigos me conocen como Rod.",
+      "text02": "Desde hace +9 años, me especializo en el mundo digital, enfocándome en la User Experience (UX) & User Interface (UI)."
+    },
+    "achievements": {
+       "title": "Logros",
+        "a1": "En 2015, participé en el desarrollo de una aplicación para Arturo Vidal, proyecto que tuvo gran repercusión mediática",
+        "a2": "Ese mismo año, logramos desarrollar una aplicación llamada workei, una opción más inclusiva y justa de buscar empleo",
+        "a3": "Además, en 2019, obtuve el tercer lugar en el APEC APP Challenge con la app REVOO, diseñada para generar redes de contacto",
+        "vm": "ver más"
+    },
+    "skill": {
+      "name": "Habilidades"
+    },
+    "experience": {
+        "exp01": {
+            "date1": "Junio 2015 - Octubre 2022",
+            "exp1": "Encargado del area de diseño donde desarrolle un gran conocimiento en Sistemas de Diseño y Frontend al estar siempre en contacto con los mejores desarrolladores de la zona."
+        },
+        "exp02": {
+            "date1": "Junio 2020 - Septiembre 2022",
+            "exp1": "Dentro de Jumpitt era encargado de los diseños para Sovos Autoriza generando una plataforma de venta de Certificados Digitales (todo tipo de documentos tributarios)."
+        },
+        "exp03": {
+            "date1": "Octubre 2022 - Noviembre 2024",
+            "exp1": "Fue por proyecto de un rebranding de la empresa, poder diseñar y desarrollar las web de sus productos y donde fui un miembro activo en el desarrollo de la app icarWallet"
+        },
+        "download": "Descargar Carta Recomendación"
+    },
+    "projects": {
+      "title": "Proyectos",
+      "more": "Saber más",
+      "project1": {
+        "title": "Wallet iCar - Accede a tu documentación vehicular",
+        "description": "Plataforma web y mobile desarrolladas con componentes en React, diseñadas para un acceso rápido y sencillo a certificados digitales y documentación vehicular. Todo el desarrollo visual fue conceptualizado y diseñado en Figma, asegurando una experiencia intuitiva y eficiente"
+      },
+      "project2": {
+        "title": "Notarisa - Firma de Documentos Digitales autorizados por un notario",
+        "description": "Buscamos simplificar la gestión documental, evitando los procesos de impresión, firma manual, envío de documentos, archivos físicos y en general todo proceso que solo nos desvía del foco"
+      },
+      "project3": {
+        "title": "Autoriza Sovos - Certificados Digitales autorizados por el SII",
+        "description": "Plataforma en línea para la compra y descarga de certificados digitales, utilizados para firmar documentos electrónicos de manera segura y cumpliendo normativas. Permite a los usuarios adquirir, gestionar y aplicar firmas digitales, agilizando procesos administrativos y garantizando la autenticidad de los documentos"
+      },
+      "project4": {
+        "title": "Riivi - La primera plataforma gratuita de contenido latinoamericano",
+        "description": "Cientos de películas, series y documentales chilenos y una gran selección de los mejores títulos de nuestro continente. Llévanos contigo donde vayas y disfrútanos también en tu computador o smarTV"
+      }
+    },
+    "build": {
+      "text": "👨🏽‍💻 Este sitio fue maqueteado en"
+    },
+    "footer": {
+      "rights": "Casi todos los derechos reservados."
+    }
+  }
+  

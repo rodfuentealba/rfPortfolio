@@ -65,11 +65,13 @@ const PILL = [
         tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR]
     }
 ]
+
+const { s } = Astro.props;
 ---
 
 <h3 class="text-2xl font-semibold my-8 flex gap-x-2 items-center">
     <SkillIcon class="size-6"/>
-    Habilidades
+    {s.name}
 </h3>
 
 {
@@ -83,15 +85,6 @@ const PILL = [
                             <tag.icon class="size-4 mr-1" />
                             {tag.name}
                         </span>
-
-                        {/* <div class="w-full mb-6">
-                            <dd class="flex items-center mt-1">
-                                <div class="w-full bg-gray-200 rounded-sm h-1 dark:bg-gray-700 me-2">
-                                    <div class="bg-yellow-200 animate-pulse scale-from-0 scale-to-100 transform-gpu h-1 rounded-sm dark:bg-yellow-300" style={`${tag.with}`}></div>
-                                </div>
-                                <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{tag.valorate}%</span>
-                            </dd>
-                        </div> */}
 
                         <div class="flex items-center">
                             <svg class="w-4 h-4 animate-bounce text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">

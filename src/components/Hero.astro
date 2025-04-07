@@ -1,0 +1,98 @@
+---
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import IgIcon from "../components/icons/Ig.astro";
+import SocialPill from "../components/SocialPill.astro";
+
+const { t } = Astro.props;
+---
+
+<img
+    src="/profileAvatar.webp"
+    alt="mockup"
+    class="size-50 md:size-80 maskImg"
+/>
+
+<a
+    href="https://www.linkedin.com/in/rodfuentealba/"
+    target="_blank"
+    rel="noopener"
+    class="animate-bounce"
+>
+    <span
+        class="bg-green-400 text-green-900 text-xs uppercase font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-green-600 dark:text-green-200"
+        >{t.avalaible}</span
+    >
+</a>
+
+<h1 class="text-4xl md:text-4xl lg:text-6xl font-bold">
+    {t.greeting} {t.name}
+</h1>
+
+<h2 class="text-2xl text-wrap md:w-150 mt-6">
+    <span class="text-yellow-500 dark:text-yellow-200/90"
+        >{t.title}</span
+    >
+    <span
+        >{t.text}</span
+    >
+    <div class="mt-2">
+        <span
+            class="text-green-500 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:text-green-400 border border-green-400"
+        >
+            <svg
+                class="w-3 h-3 mr-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+            >
+                <path
+                    fill="currentColor"
+                    d="m18.774 8.245-.892-.893a1.5 1.5 0 0 1-.437-1.052V5.036a2.484 2.484 0 0 0-2.48-2.48H13.7a1.5 1.5 0 0 1-1.052-.438l-.893-.892a2.484 2.484 0 0 0-3.51 0l-.893.892a1.5 1.5 0 0 1-1.052.437H5.036a2.484 2.484 0 0 0-2.48 2.481V6.3a1.5 1.5 0 0 1-.438 1.052l-.892.893a2.484 2.484 0 0 0 0 3.51l.892.893a1.5 1.5 0 0 1 .437 1.052v1.264a2.484 2.484 0 0 0 2.481 2.481H6.3a1.5 1.5 0 0 1 1.052.437l.893.892a2.484 2.484 0 0 0 3.51 0l.893-.892a1.5 1.5 0 0 1 1.052-.437h1.264a2.484 2.484 0 0 0 2.481-2.48V13.7a1.5 1.5 0 0 1 .437-1.052l.892-.893a2.484 2.484 0 0 0 0-3.51Z"
+                ></path>
+                <path
+                    fill="#fff"
+                    d="M8 13a1 1 0 0 1-.707-.293l-2-2a1 1 0 1 1 1.414-1.414l1.42 1.42 5.318-3.545a1 1 0 0 1 1.11 1.664l-6 4A1 1 0 0 1 8 13Z"
+                ></path>
+            </svg>
+            {t.ds}
+        </span>
+        <span
+            class="text-pink-600 text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:text-pink-400 border border-pink-400"
+        >
+            <svg
+                class="w-3 h-3 mr-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+            >
+                <path
+                    fill="currentColor"
+                    d="m18.774 8.245-.892-.893a1.5 1.5 0 0 1-.437-1.052V5.036a2.484 2.484 0 0 0-2.48-2.48H13.7a1.5 1.5 0 0 1-1.052-.438l-.893-.892a2.484 2.484 0 0 0-3.51 0l-.893.892a1.5 1.5 0 0 1-1.052.437H5.036a2.484 2.484 0 0 0-2.48 2.481V6.3a1.5 1.5 0 0 1-.438 1.052l-.892.893a2.484 2.484 0 0 0 0 3.51l.892.893a1.5 1.5 0 0 1 .437 1.052v1.264a2.484 2.484 0 0 0 2.481 2.481H6.3a1.5 1.5 0 0 1 1.052.437l.893.892a2.484 2.484 0 0 0 3.51 0l.893-.892a1.5 1.5 0 0 1 1.052-.437h1.264a2.484 2.484 0 0 0 2.481-2.48V13.7a1.5 1.5 0 0 1 .437-1.052l.892-.893a2.484 2.484 0 0 0 0-3.51Z"
+                ></path>
+                <path
+                    fill="#fff"
+                    d="M8 13a1 1 0 0 1-.707-.293l-2-2a1 1 0 1 1 1.414-1.414l1.42 1.42 5.318-3.545a1 1 0 0 1 1.11 1.664l-6 4A1 1 0 0 1 8 13Z"
+                ></path>
+            </svg>
+            {t.figma}
+        </span>
+    </div>
+</h2>
+
+<nav class="flex justify-center gap-2 mt-8 flex-wrap">
+    <SocialPill href="https://www.linkedin.com/in/rodfuentealba/">
+        <LinkedInIcon class="size-4 md:size-5" />
+        LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/rodfuentealba">
+        <GitHubIcon class="size-4 md:size-5" />
+        GitHub
+    </SocialPill>
+    <SocialPill href="https://www.instagram.com/rodfuentealbac">
+        <IgIcon class="size-4 md:size-5" />
+        Instagram
+    </SocialPill>
+</nav>

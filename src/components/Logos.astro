@@ -9,11 +9,17 @@ import Logo07 from '../components/logos/Logo07.astro'
 import Logo08 from '../components/logos/Logo08.astro'
 import Logo09 from '../components/logos/Logo09.astro'
 import Logo10 from '../components/logos/Logo10.astro'
+import LogosIcon from '../components/icons/Logos.astro'
 
 const logos = [
   Logo01, Logo02, Logo03, Logo04, Logo05, Logo06, Logo07, Logo08, Logo09, Logo10
 ];
 ---
+
+<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+  <LogosIcon class="size-6"/>
+  Logos
+</h2>
 
 <div class="w-full max-w-5xl mx-auto px-4 md:px-6 py-24">
     <div class="text-center">

@@ -1,66 +1,89 @@
 ---
-import BadgeLink from '../components/BadgeLink.astro'
-import MedalIcon from '../components/icons/Medal.astro'
-import Skill from './Skill.astro'
+import BadgeLink from "../components/BadgeLink.astro";
+import MedalIcon from "../components/icons/Medal.astro";
+import Skill from "./Skill.astro";
+import SelfIcon from '../components/icons/Self.astro'
+import es from '../i18n/es.json'
+
+const { t, a } = Astro.props;
 ---
 
 <section>
-            <div class="flex items-center grid max-w-screen-xl px-4 mx-auto lg:gap-20 py-10 lg:grid-cols-12">
-                <div class="order-2 lg:order-1 mr-auto place-self-center lg:col-span-7">
-                    <h1 class="max-w-2xl mb-6 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-                        Diseñador UX/UI <span class="bg-gradient-to-r from-yellow-500 to-yellow-300 dark:from-yellow-600 dark:to-yellow-200 inline-block text-transparent bg-clip-text">& Frontend</>
-                    </h1>
-                    <div
-                        class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-                    >
-                        <p>
-                            ¡Hola! Soy <strong>Rodolfo Fuentealba Cortes</strong>, pero mis amigos me conocen como Rod.
-                        </p>
+    <h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+        <SelfIcon class="size-6"/>
+        {t.name}
+    </h2>
 
-                        <p>
-                            Desde hace +9 años, me especializo en el mundo digital, enfocándome en la <strong>User Experience (UX)</strong> & <strong>User Interface (UI)</strong>.
-                        </p>
+    <div
+        class="flex items-center grid max-w-screen-xl px-4 mx-auto lg:gap-20 py-10 lg:grid-cols-12"
+    >
+        <div class="order-2 lg:order-1 mr-auto place-self-center lg:col-span-7">
+            <h1
+                class="max-w-2xl mb-6 text-4xl tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+            >
+                {t.title} <span
+                    class="bg-gradient-to-r from-yellow-500 to-yellow-300 dark:from-yellow-600 dark:to-yellow-200 inline-block text-transparent bg-clip-text"
+                    >{t.title2}</span
+                >
+            </h1>
+            <div
+                class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+            >
+                <p>{t.text01}</p>
+                <p>{t.text02}</p>
 
-                        <h3 class="text-lg text-yellow-500 dark:text-yellow-300 font-semibold my-8 flex gap-x-2 items-center">
-                            <MedalIcon class="size-6"/>
-                            Logros
-                        </h3>
+                <h3
+                    class="text-lg text-yellow-500 dark:text-yellow-300 font-semibold my-8 flex gap-x-2 items-center"
+                >
+                    <MedalIcon class="size-6" />
+                    {a.title}
+                </h3>
 
-                        <ul>
-                            <li class="mb-5">
-                                <p>
-                                    En 2015, participé en el desarrollo de una aplicación para <strong>Arturo Vidal</strong>, proyecto que tuvo gran repercusión mediática 
-                                </p>
-                                <a class="text-blue-400 mb-5 mt-0" href="https://www.df.cl/tendencias/arturo-vidal-presento-su-aplicacion-vidal-app" target="_blank">
-                                <BadgeLink>ver más</BadgeLink>
-                                </a>
-                            </li>
-    
-                            <li class="mb-5">
-                                <p>Ese mismo año, logramos desarrollar una aplicación llamada <strong>workei</strong>, una opción más inclusiva y justa de buscar empleo
-                                </p>
-                                <a class="text-blue-400 mb-5 mt-0" href="https://www.biobiochile.cl/noticias/2015/07/02/workei-la-plataforma-chilena-inclusiva-que-ayuda-a-encontrar-trabajo-sin-diferenciar.shtml" target="_blank">
-                                    <BadgeLink>ver más</BadgeLink>
-                                </a>
-                            </li>
-    
-                            <li class="mb-5">
-                                <p>Además, en 2019, obtuve el <strong>tercer lugar en el APEC APP Challenge con la app REVOO</strong>, diseñada para generar redes de contacto 
-                                </p>
-                                <a class="text-blue-400 mb-5 mt-0" href="https://www.emol.com/noticias/Tecnologia/2019/05/17/948286/REVOO-la-aplicacion-chilena-para-generar-redes-de-contacto-que-logro-el-tercer-lugar-en-el-APEC-App-Challenge.html" target="_blank">
-                                    <BadgeLink>ver más</BadgeLink>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="order-1 lg:order-2 lg:mt-0 lg:col-span-5 flex justify-center lg:flex">
-                    <img
-                        src="/profile.webp"
-                        alt="mockup"
-                        class="w-50 mb-20 lg:mb-0 md:w-100"
-                    />
-                </div>
+                <ul>
+                    <li class="mb-5">
+                        <p>{a.a1}</p>
+                        <a
+                            class="text-blue-400 mb-5 mt-0"
+                            href="https://www.df.cl/tendencias/arturo-vidal-presento-su-aplicacion-vidal-app"
+                            target="_blank"
+                        >
+                            <BadgeLink>{a.vm}</BadgeLink>
+                        </a>
+                    </li>
+
+                    <li class="mb-5">
+                        <p>{a.a2}</p>
+                        <a
+                            class="text-blue-400 mb-5 mt-0"
+                            href="https://www.biobiochile.cl/noticias/2015/07/02/workei-la-plataforma-chilena-inclusiva-que-ayuda-a-encontrar-trabajo-sin-diferenciar.shtml"
+                            target="_blank"
+                        >
+                            <BadgeLink>{a.vm}</BadgeLink>
+                        </a>
+                    </li>
+
+                    <li class="mb-5">
+                        <p>{a.a3}</p>
+                        <a
+                            class="text-blue-400 mb-5 mt-0"
+                            href="https://www.emol.com/noticias/Tecnologia/2019/05/17/948286/REVOO-la-aplicacion-chilena-para-generar-redes-de-contacto-que-logro-el-tercer-lugar-en-el-APEC-App-Challenge.html"
+                            target="_blank"
+                        >
+                            <BadgeLink>{a.vm}</BadgeLink>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <Skill></Skill>
+        </div>
+        <div
+            class="order-1 lg:order-2 lg:mt-0 lg:col-span-5 flex justify-center lg:flex"
+        >
+            <img
+                src="/profile.webp"
+                alt="mockup"
+                class="w-50 mb-20 lg:mb-0 md:w-100"
+            />
+        </div>
+    </div>
+    <Skill s={es.skill}/>
 </section>

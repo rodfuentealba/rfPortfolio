@@ -1,7 +1,9 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguageSwitch from "./LanguageSwitch.astro";
 
 let scrolled = false;
+const { t } = Astro.props
 ---
 
 <nav 
@@ -26,22 +28,23 @@ let scrolled = false;
 
 
       <div class="sm:order-3">
-        <ThemeToggle></ThemeToggle>
+        <ThemeToggle />
+        <LanguageSwitch />
       </div>
       
       <div id="navbar-menu" class="hidden sm:order-2 w-full md:block md:w-auto transform transition-all duration-300 ease-in-out scale-95">
         <ul class="flex flex-row justify-between md:flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
           <li class="hover:scale-105">
-              <a href="#top" class="hover:text-semibold hover:text-yellow-500 hover:scale-105">Inicio</a>
+              <a href="#top" class="hover:text-semibold hover:text-yellow-500 hover:scale-105">{t.home}</a>
           </li>
           <li class="hover:scale-105">
-              <a href="#sobre-mi" class="hover:text-semibold hover:text-yellow-500">Sobre Mí</a>
+              <a href="#sobre-mi" class="hover:text-semibold hover:text-yellow-500">{t.about}</a>
           </li>
           <li class="hover:scale-105">
-              <a href="#experiencia" class="hover:text-semibold hover:text-yellow-500">Experiencia</a>
+              <a href="#experiencia" class="hover:text-semibold hover:text-yellow-500">{t.experiences}</a>
           </li>
           <li class="hover:scale-105">
-              <a href="#proyectos" class="hover:text-semibold hover:text-yellow-500">Proyectos</a>
+              <a href="#proyectos" class="hover:text-semibold hover:text-yellow-500">{t.projects}</a>
           </li>
         </ul>
       </div>

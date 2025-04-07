@@ -1,11 +1,17 @@
 ---
 import AstrHori from "./icons/AstrHori.astro";
 import TailwindHori from "./icons/TailwindHori.astro";
+import PostDataIcon from '../components/icons/Postdata.astro'
 
-
+const { t } = Astro.props;
 ---
 
-<h1 class="text-base italic text-center">Este sitio fue maqueteado en</h1>
+<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center justify-center">
+    <PostDataIcon class="size-6"/>
+    Postdata
+</h2>
+
+<h1 class="text-base italic text-center">{t.text}</h1>
 
 <div class="flex flex-col md:flex-row items-center justify-center">
     <a 
