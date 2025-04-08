@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import es from '../i18n/es.json'
+import en from '../i18n/en.json'
 
 interface Props {
 	title: string,
@@ -27,9 +28,9 @@ const { description, title } = Astro.props
 	<body class="relative bg-white dark:bg-neutral-950 text-dark dark:text-white">
 		<div class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(252,175,238,0.7),rgba(255,255,255,0))] dark:hidden"></div>
 		<div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] hidden dark:block"></div>
-		<Header t={es.navbar} />
+		<Header t={es.navbar} t={en.navbar} />
 		<slot />
-		<Footer t={es.footer} n={es.navbar}/>
+		<Footer t={es.footer} n={es.navbar} t={en.footer} n={en.navbar}/>
 	</body>
 </html>
 
