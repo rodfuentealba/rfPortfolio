@@ -75,9 +75,9 @@ const { description, title } = Astro.props;
 			class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] hidden dark:block"
 		>
 		</div>
-		<Header t={es.navbar} t={en.navbar} />
+		<Header t_es={es.navbar} t_en={en.navbar} />
 		<slot />
-		<Footer t={es.footer} n={es.navbar} t={en.footer} n={en.navbar} />
+		<Footer t_es={es.footer} n_es={es.navbar} t_en={en.footer} n_en={en.navbar} />
 	</body>
 </html>
 

@@ -3,7 +3,9 @@ import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSwitch from "./LanguageSwitch.astro";
 
 let scrolled = false;
-const { t } = Astro.props
+const { t_es, t_en } = Astro.props;
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = lang === 'en' ? t_en : t_es;
 ---
 
 <nav 
