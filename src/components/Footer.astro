@@ -1,10 +1,6 @@
 ---
 const currentYear = new Date().getFullYear()
-const { t_es, n_es, t_en, n_en } = Astro.props;
-const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es'; // O tu lógica de idioma
-
-const t = lang === 'en' ? t_en : t_es;
-const n = lang === 'en' ? n_en : n_es;
+const { t, n } = Astro.props;
 ---
 
 <footer

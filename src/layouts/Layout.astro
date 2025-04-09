@@ -12,6 +12,9 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = lang === 'en' ? en : es;
 ---
 
 <!doctype html>
@@ -75,9 +78,9 @@ const { description, title } = Astro.props;
 			class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] hidden dark:block"
 		>
 		</div>
-		<Header t_es={es.navbar} t_en={en.navbar} />
+		<Header t={t.navbar} />
 		<slot />
-		<Footer t_es={es.footer} n_es={es.navbar} t_en={en.footer} n_en={en.navbar} />
+		<Footer t={t.footer} n={t.navbar} />
 	</body>
 </html>
 
