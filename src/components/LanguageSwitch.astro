@@ -1,11 +1,10 @@
----
----
 <button
   {...Astro.props}
   id="toggle-lang"
   class="text-2xl px-3 py-1 font-semibold rounded-xl bg-slate-500/10 text-slate-800 dark:bg-white dark:text-slate-800 transition-colors duration-300 ease-in-out"
+  onclick="event.preventDefault(); switchLang('/en')"
 >
-  🌐
+  🌎
 </button>
 
 <script>
@@ -23,11 +22,22 @@
       const newLang = isEnglish ? 'es' : 'en';
       localStorage.setItem('lang', newLang);
 
-      // Redirigir a la versión correcta
-      if (newLang === 'en') {
-        window.location.href = '/en';
-      } else {
-        window.location.href = '/';
+      // Guardar la posición actual del scroll como string
+      sessionStorage.setItem('scroll-pos', window.scrollY.toString());
+
+      // Redirigir a la versión en el nuevo idioma
+      window.location.href = newLang === 'en' ? '/en' : '/';
+    });
+
+    // Esperar a que la página cargue completamente antes de restaurar el scroll
+    window.addEventListener('load', () => {
+      const savedScroll = sessionStorage.getItem('scroll-pos');
+      if (savedScroll !== null) {
+        const scrollY = Number(savedScroll);
+        if (!isNaN(scrollY)) {
+          window.scrollTo(0, scrollY);
+        }
+        sessionStorage.removeItem('scroll-pos');
       }
     });
   });
