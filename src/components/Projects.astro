@@ -10,6 +10,7 @@ import CodeIcon from '../components/icons/Code.astro'
 
 const { t } = Astro.props;
 
+
 const TAGS = {
     FIGMA: {
         name: "Figma",
@@ -113,6 +114,7 @@ const PROJECTS = [
                         <footer class="flex items-end justify-start mt-4 gap-x-4">
                             {link && (
                                 <LinkButton href={link}>
+                                {/* <LinkButton href={`/projects/${slug}`}></LinkButton> */}
                                     <Link class="size-4" />
                                     {t.more}
                                 </LinkButton>
