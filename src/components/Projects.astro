@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Figma from "./icons/Figma.astro";
 import React from "./icons/React.astro";
 import Ant from "./icons/Ant.astro";
@@ -7,6 +8,10 @@ import Vue from "./icons/Vue.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
 import CodeIcon from '../components/icons/Code.astro'
+import Date from './icons/Date.astro'
+
+const works = await getCollection('works')
+
 
 const { t } = Astro.props;
 
@@ -68,6 +73,9 @@ const PROJECTS = [
         tags: [TAGS.FIGMA, TAGS.VUE , TAGS.BOOTSTRAP],
     },
 ];
+
+const tags = ['FIGMA', 'REACT'] as (keyof typeof TAGS)[];
+
 ---
 
 <h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
@@ -77,6 +85,81 @@ const PROJECTS = [
 
 <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
     {
+        works.map(work => {
+            const {slug, data } = work
+            const { titleProduct, titleDescription, img, link, tags, description, time } = data
+
+            return (
+                <article class="flex flex-col group">
+                    <div class="w-full">
+                        <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform hover:shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 lg:hover:bg-gray-800/50">
+                            <a href={`/projects/${slug}`}>
+                                <img
+                                    transition:name={`img-${slug}`}
+                                    alt={titleDescription}
+                                    class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
+                                    loading="lazy"
+                                    src={img}
+                                    />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full">
+                    
+                        <h3 class="mt-6 text-2xl font-bold text-gray-800 dark:text-gray-100">
+                            <a href={`/projects/${slug}`}>
+                                {titleProduct} {titleDescription}
+                            </a>
+                        </h3>
+                        
+                        <h4 class="flex items-center my-2 text-sm text-gray-500 dark:text-gray-100">
+                            <span class="flex items-center bg-gray-100 text-gray-800 text-xs font-medium me-2 px-3 py-1 rounded-sm dark:bg-gray-700 dark:text-gray-300">
+                                <Date class="size-5 mr-1"/>
+                                Tiempo: Alrededor de {time}
+                            </span>
+                        </h4>
+
+                        <div class="flex flex-wrap mt-2">
+                            <ul class="flex flex-row mb-2 gap-x-2">
+                                {tags.map((tagKey) => {
+                                    const tag = TAGS[tagKey as keyof typeof TAGS];
+                                    if (!tag) return null; // 🛡️ se salta los que no están definidos
+
+                                    const Icon = tag.icon;
+
+                                    return (
+                                    <li>
+                                        <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 hover:scale-105`}
+                                        >
+                                        <Icon class="size-4" />
+                                        {tag.name}
+                                        </span>
+                                    </li>
+                                    );
+                                })}
+                            </ul>
+
+                            <div class="mt-2 text-gray-700 dark:text-gray-400">
+                                {description}
+                            </div>
+                            <footer class="flex items-end justify-start mt-4 gap-x-4">
+                                {link && (
+                                    <LinkButton href={link}>
+                                    {/* <LinkButton href={`/projects/${slug}`}></LinkButton> */}
+                                        <Link class="size-4" />
+                                        {t.more}
+                                    </LinkButton>
+                                )}
+                            </footer>
+                        </div>
+                    </div>
+                </article>
+            )
+        })
+    }
+    <!-- {
         PROJECTS.map(({ image, title, description, tags, link }) => (
             <article class="flex flex-col group">
                 <div class="w-full">
@@ -124,5 +207,5 @@ const PROJECTS = [
                 </div>
             </article>
         ))
-    }
+    } -->
 </div>

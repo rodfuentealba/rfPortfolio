@@ -1,22 +1,40 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
 
 export async function getStaticPaths() {
-    return [
-        {
-            params: { id: "aprendiendo-git"},
-            props: { title: "Aprendiendo Git y Github"}
-        }
-    ]
+    const works = await getCollection("works");
+
+    return works.map((work) => ({
+        params: { id: work.slug},
+        props: { work }
+    }))
 }
 
-const { title } = Astro.props
+
+const { work } = Astro.props
+const { data, slug } = work
+const { img, imgInside, titleProduct, titleDescription, type, team, time, link } = data
+
 ---
 
 <Layout 
-	title={`Proyectos - ${title}`}
-	description="Contrata a rodfuentealba para darle vida a tus diseños tanto web como móviles o si necesitas generar contenido para RRSS."
->
-    <h1>Hola</h1>
+	title={`Proyectos - ${titleProduct}`}
+	description="Contrata a rodfuentealba para darle vida a tus diseños tanto web como móviles o si necesitas generar contenido para RRSS.">
+    
+    <div>
+        <img
+        transition:name={`img-${slug}`}
+        alt={titleDescription}
+        class="object-cover object-top w-full h-138 transition duration-500 md:group-hover:scale-110"
+        loading="lazy"
+        src={imgInside}
+        />
+    </div>
+
+    <SectionContainer class="flex flex-col text-center items-center py-35 md:py-23 md:px-20">
+        <h1 class="text-7xl"> Product Design / Caso de Estudio</h1>
+        <h2 class="text-4xl"> 👨🏽‍💻 {titleProduct} {titleDescription}</h2>
+    </SectionContainer>
 </Layout>
