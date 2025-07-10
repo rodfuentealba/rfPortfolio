@@ -93,27 +93,22 @@ const tags = ['FIGMA', 'REACT'] as (keyof typeof TAGS)[];
                 <article class="flex flex-col group">
                     <div class="w-full">
                         <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform hover:shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 lg:hover:bg-gray-800/50">
-                            <a href={`/projects/${slug}`}>
-                                <img
-                                    transition:name={`img-${slug}`}
-                                    alt={titleDescription}
-                                    class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
-                                    loading="lazy"
-                                    src={img}
-                                    />
-                            </a>
+                        <img
+                            alt={titleDescription}
+                            class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
+                            loading="lazy"
+                            src={img}
+                            />
                         </div>
                     </div>
 
                     <div class="w-full">
                     
                         <h3 class="mt-6 text-2xl font-bold text-gray-800 dark:text-gray-100">
-                            <a href={`/projects/${slug}`}>
-                                {titleProduct} {titleDescription}
-                            </a>
+                            {titleProduct} {titleDescription}
                         </h3>
                         
-                        <h4 class="flex items-center my-2 text-sm text-gray-500 dark:text-gray-100">
+                        <h4 class="flex items-center my-2 text-sm text-gray-500 dark:text-gray-100 cursor-pointer">
                             <span class="flex items-center bg-gray-100 text-gray-800 text-xs font-medium me-2 px-3 py-1 rounded-sm dark:bg-gray-700 dark:text-gray-300">
                                 <Date class="size-5 mr-1"/>
                                 Tiempo: Alrededor de {time}
@@ -121,7 +116,7 @@ const tags = ['FIGMA', 'REACT'] as (keyof typeof TAGS)[];
                         </h4>
 
                         <div class="flex flex-wrap mt-2">
-                            <ul class="flex flex-row mb-2 gap-x-2">
+                            <ul class="flex flex-row mb-2 gap-x-2 cursor-pointer">
                                 {tags.map((tagKey) => {
                                     const tag = TAGS[tagKey as keyof typeof TAGS];
                                     if (!tag) return null; // 🛡️ se salta los que no están definidos
@@ -159,53 +154,4 @@ const tags = ['FIGMA', 'REACT'] as (keyof typeof TAGS)[];
             )
         })
     }
-    <!-- {
-        PROJECTS.map(({ image, title, description, tags, link }) => (
-            <article class="flex flex-col group">
-                <div class="w-full">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 transition duration-500 ease-in-out transform hover:shadow-xl overflow-clip rounded-xl md:group-hover:-translate-y-1 lg:hover:bg-gray-800/50">
-                        <img
-                            alt="Proyectos donde eh participado como Rodfuentealba - Diseñador UX/UI"
-                            class="object-cover object-top w-full h-full transition duration-500 md:group-hover:scale-110"
-                            loading="lazy"
-                            src={image}
-                        />
-                    </div>
-                </div>
-
-                <div class="w-full">
-                    <h3 class="mt-6 text-2xl font-bold text-gray-800 dark:text-gray-100">
-                        {title}
-                    </h3>
-                    <div class="flex flex-wrap mt-2">
-                        <ul class="flex flex-row mb-2 gap-x-2">
-                            {tags.map((tag) => (
-                                <li>
-                                    <span
-                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 hover:scale-105`}
-                                    >
-                                        <tag.icon class="size-4" />
-                                        {tag.name}
-                                    </span>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <div class="mt-2 text-gray-700 dark:text-gray-400">
-                            {description}
-                        </div>
-                        <footer class="flex items-end justify-start mt-4 gap-x-4">
-                            {link && (
-                                <LinkButton href={link}>
-                                {/* <LinkButton href={`/projects/${slug}`}></LinkButton> */}
-                                    <Link class="size-4" />
-                                    {t.more}
-                                </LinkButton>
-                            )}
-                        </footer>
-                    </div>
-                </div>
-            </article>
-        ))
-    } -->
 </div>
