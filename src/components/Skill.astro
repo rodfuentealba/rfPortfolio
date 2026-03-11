@@ -7,6 +7,8 @@ import Vue from "./icons/Vue.astro";
 import Astr from "./icons/Astr.astro";
 import Illustrator from './icons/Illustrator.astro'
 import Photoshop from './icons/Photoshop.astro'
+import Lovable from './icons/Lovable.astro';
+import Claude from './icons/Claude.astro';
 
 const TAGS = {
     FIGMA: {
@@ -16,10 +18,24 @@ const TAGS = {
         with: 'width: 95%',
         valorate: '4.5'
     },
+    LOVABLE: {
+        name: "Lovable",
+        class: "bg-violet-200 text-violet-800 dark:bg-violet-100 dark:text-violet-900",
+        icon: Lovable,
+        with: 'width: 98%',
+        valorate: '4.8'
+    },
     REACT: {
         name: "React",
         class: "bg-cyan-100 text-cyan-400 dark:bg-cyan-900 dark:text-cyan-300",
         icon: React,
+        with:'width: 85%',
+        valorate: '4.6'
+    },
+    CLAUDE: {
+        name: "Claude",
+          class: "bg-amber-200 text-amber-800 dark:bg-amber-100 dark:text-amber-900",
+        icon: Claude,
         with:'width: 85%',
         valorate: '4.6'
     },
@@ -62,7 +78,7 @@ const TAGS = {
 
 const PILL = [
     {   
-        tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR]
+        tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR, TAGS.LOVABLE, TAGS.CLAUDE]
     }
 ]
 

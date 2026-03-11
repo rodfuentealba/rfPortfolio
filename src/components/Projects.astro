@@ -1,17 +1,27 @@
 ---
 import { getCollection } from "astro:content";
 import Figma from "./icons/Figma.astro";
+import Notion from "./icons/Notion.astro";
 import React from "./icons/React.astro";
 import Ant from "./icons/Ant.astro";
 import Bootstrap from "./icons/Bootstrap.astro";
 import Vue from "./icons/Vue.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
-import CodeIcon from '../components/icons/Code.astro'
-import Date from './icons/Date.astro'
+import Claude from "./icons/Claude.astro";
+import Lovable from "./icons/Lovable.astro";
+import CodeIcon from '../components/icons/Code.astro';
+import Date from './icons/Date.astro';
+import Illustrator from "./icons/Illustrator.astro";
 
-const works = await getCollection('works')
+const allWorks = await getCollection('works')
 
+const workOrder = ['wasteOlas', 'notarisa', 'wallet', 'autorisa', 'riivi'];
+const works = allWorks.sort((a, b) => {
+    const indexA = workOrder.indexOf(a.slug);
+    const indexB = workOrder.indexOf(b.slug);
+    return indexA - indexB;
+});
 
 const { t } = Astro.props;
 
@@ -19,8 +29,23 @@ const { t } = Astro.props;
 const TAGS = {
     FIGMA: {
         name: "Figma",
-        class: "bg-pink-100 text-pink-500 dark:bg-pink-900 dark:text-pink-300",
+        class: "bg-pink-200 text-pink-400 dark:bg-pink-100 dark:text-pink-800",
         icon: Figma,
+    },
+    LOVABLE: {
+        name: "Lovable",
+        class: "bg-violet-200 text-violet-800 dark:bg-violet-100 dark:text-violet-900",
+        icon: Lovable,
+    },
+    CLAUDE: {
+        name: "Claude",
+        class: "bg-amber-200 text-amber-800 dark:bg-amber-100 dark:text-amber-900",
+        icon: Claude,
+    },
+    AI: {
+        name: "Illustrator",
+        class: "bg-orange-200 text-orange-600 dark:bg-orange-100 dark:text-orange-700",
+        icon: Illustrator,
     },
     REACT: {
         name: "React",
@@ -42,39 +67,12 @@ const TAGS = {
         class: "bg-green-100 text-green-800 dark:bg-green-300 dark:text-green-700",
         icon: Vue,
     },
+    NOTION: {
+        name: "Notion",
+        class: "bg-slate-300 text-green-800 dark:bg-slate-100 dark:text-slate-700",
+        icon: Notion,
+    },
 };
-const PROJECTS = [
-    {
-        title: t.project1.title,
-        description: t.project1.description,
-        link: "https://apps.apple.com/cl/app/wallet-icar/id6466432932",
-        image: "/projects/projectsWalletMobile.webp",
-        tags: [TAGS.FIGMA, TAGS.REACT],
-    },
-    {
-        title: t.project2.title,
-        description: t.project2.description,
-        link: "https://www.notarisa.cl/",
-        image: "/projects/projectsNotarisa.webp",
-        tags: [TAGS.FIGMA, TAGS.REACT, TAGS.ANT],
-    },
-    {
-        title: t.project3.title,
-        description: t.project3.description,
-        link: "https://acepta.com/certificado-digital/",
-        image: "/projects/projectsAutoriza.webp",
-        tags: [TAGS.FIGMA, TAGS.BOOTSTRAP , TAGS.REACT],
-    },
-    {
-        title: t.project4.title,
-        description: t.project4.description,
-        link: "https://www.youtube.com/watch?v=GqQ42uY5E1o",
-        image: "/projects/projectsRiivi.webp",
-        tags: [TAGS.FIGMA, TAGS.VUE , TAGS.BOOTSTRAP],
-    },
-];
-
-const tags = ['FIGMA', 'REACT'] as (keyof typeof TAGS)[];
 
 ---
 
