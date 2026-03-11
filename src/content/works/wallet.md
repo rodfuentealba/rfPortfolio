@@ -7,7 +7,7 @@ type: APP Mobile and Desktop
 team: 7 Personas
 time: 10 Meses
 tags: ["REACT", "FIGMA", "MOBILE", "DESKTOP"]
-link: https://apps.apple.com/cl/app/wallet-icar/id6466432932
+link: https://icarwallet.cl/
 description: Desarrollamos una plataforma web y móvil usando componentes en **React**, pensadas para brindar un acceso rápido y fácil a certificados digitales y documentación vehicular. Todo el diseño visual fue creado en **Figma**, con el objetivo de ofrecer una experiencia intuitiva y eficiente en cada interacción.
 ---
 
