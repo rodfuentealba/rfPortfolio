@@ -16,9 +16,6 @@ import Illustrator from "./icons/Illustrator.astro";
 
 const allWorks = await getCollection('works')
 
-console.log('Total works:', allWorks.length)
-console.log('Slugs:', allWorks.map(w => w.slug))
-
 const workOrder = ['wasteOlas', 'notarisa', 'wallet', 'autorisa', 'riivi'];
 const works = allWorks.sort((a, b) => {
     const indexA = workOrder.indexOf(a.slug);
