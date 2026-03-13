@@ -8,11 +8,13 @@ import Bootstrap from "./icons/Bootstrap.astro";
 import Vue from "./icons/Vue.astro";
 import LinkButton from "./LinkButton.astro";
 import Link from "./icons/Link.astro";
+import GitHub from "./icons/GitHub.astro";
 import Claude from "./icons/Claude.astro";
 import Lovable from "./icons/Lovable.astro";
 import CodeIcon from '../components/icons/Code.astro';
 import Date from './icons/Date.astro';
 import Illustrator from "./icons/Illustrator.astro";
+import LinkButtonGithub from './LinkButtonGithub.astro';
 
 const allWorks = await getCollection('works')
 
@@ -145,10 +147,15 @@ const TAGS = {
                             <footer class="flex items-end justify-start mt-4 gap-x-4">
                                 {link && (
                                     <LinkButton href={link}>
-                                    {/* <LinkButton href={`/projects/${slug}`}></LinkButton> */}
                                         <Link class="size-4" />
                                         {t.more}
                                     </LinkButton>
+                                )}
+                                {data.repo && (
+                                    <LinkButtonGithub href={data.repo}>
+                                        <GitHub class="size-4" />
+                                        GitHub
+                                    </LinkButtonGithub>
                                 )}
                             </footer>
                         </div>

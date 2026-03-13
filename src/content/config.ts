@@ -14,7 +14,8 @@ const works = defineCollection({
         time: z.string(),
         time_en: z.string(),
         tags: z.array(z.string()),
-        link: z.string().url()
+        link: z.string().url(),
+        repo: z.string().url().optional(),
     })
 });
 
