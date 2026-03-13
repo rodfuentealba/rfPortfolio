@@ -6,8 +6,8 @@ titleDescription: "- Experiencia de Evento Interactivo"
 titleDescription_en: "- Interactive Event Experience"
 type: Branding Visual
 team: 4 Personas
-time: 6 Meses
-time_en: 6 Months
+time: 2 Meses
+time_en: 2 Months
 tags: ["AI", "FIGMA", "CLAUDE", "LOVABLE"]
 link: https://www.behance.net/gallery/245713317/Digital-Event-Platform-Baile-Inolvidable
 description: "Diseño y desarrollo de una plataforma digital interactiva para Baile Inolvidable, concebida como una invitación online que centraliza la información del evento y permite gestionar invitados, contenidos multilenguaje y programa mediante un panel administrativo. La experiencia integra elementos dinámicos como efectos parallax, contador regresivo y referencias de viaje vinculadas a Tripadvisor para acompañar la planificación de invitados internacionales."
