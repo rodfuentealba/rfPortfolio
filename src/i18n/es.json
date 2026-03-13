@@ -34,6 +34,7 @@
       "name": "Habilidades"
     },
     "experience": {
+        "name": "Experiencia Laboral",
         "exp01": {
             "date1": "Junio 2015 - Octubre 2022",
             "exp1": "Encargado del area de diseño donde desarrolle un gran conocimiento en Sistemas de Diseño y Frontend al estar siempre en contacto con los mejores desarrolladores de la zona."

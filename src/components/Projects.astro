@@ -16,6 +16,9 @@ import Illustrator from "./icons/Illustrator.astro";
 
 const allWorks = await getCollection('works')
 
+console.log('Total works:', allWorks.length)
+console.log('Slugs:', allWorks.map(w => w.slug))
+
 const workOrder = ['wasteOlas', 'notarisa', 'wallet', 'autorisa', 'riivi'];
 const works = allWorks.sort((a, b) => {
     const indexA = workOrder.indexOf(a.slug);
@@ -23,6 +26,7 @@ const works = allWorks.sort((a, b) => {
     return indexA - indexB;
 });
 
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
 const { t } = Astro.props;
 
 
@@ -85,7 +89,11 @@ const TAGS = {
     {
         works.map(work => {
             const {slug, data } = work
-            const { titleProduct, titleDescription, img, link, tags, description, time } = data
+            const { titleProduct, img, link, tags } = data
+            
+            const titleDescription = lang === 'en' ? (data.titleDescription_en ?? data.titleDescription) : data.titleDescription
+            const time = lang === 'en' ? (data.time_en ?? data.time) : data.time
+            const description = lang === 'en' ? (data.description_en ?? data.description) : data.description
 
             return (
                 <article class="flex flex-col group">
@@ -109,7 +117,7 @@ const TAGS = {
                         <h4 class="flex items-center my-2 text-sm text-gray-500 dark:text-gray-100 cursor-pointer">
                             <span class="flex items-center bg-gray-100 text-gray-800 text-xs font-medium me-2 px-3 py-1 rounded-sm dark:bg-gray-700 dark:text-gray-300">
                                 <Date class="size-5 mr-1"/>
-                                Tiempo: Alrededor de {time}
+                                {lang === 'en' ? 'Time: Around' : 'Tiempo: Alrededor de'} {time}
                             </span>
                         </h4>
 

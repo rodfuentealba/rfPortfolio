@@ -8,25 +8,25 @@ import SectionContainer from '../../components/SectionContainer.astro'
 import Projects from '../../components/Projects.astro'
 import PersonalInfo from '../../components/PersonalInfo.astro'
 
-import es from '../../i18n/en.json'
+import en from '../../i18n/en.json'
 ---
 
 <Layout 
 	title="Portfolio Rodolfo Fuentealba Diseño UX UI Frontend +9 años de experiencia"
 	description="Contrata a rodfuentealba para darle vida a tus diseños tanto web como móviles o si necesitas generar contenido para RRSS."
 >
-		<main class="px-6">
+	<main class="px-6">
 		<SectionContainer class="flex flex-col text-center items-center py-35 md:py-23 md:px-20">
-			<Hero t={es.hero}/>
+			<Hero t={en.hero}/>
 		</Section>
 
 		<SectionContainer id="sobre-mi" class="md:pb-30">
-			<PersonalInfo t={es.about} a={es.achievements}/>
+			<PersonalInfo t={en.about} a={en.achievements}/>
 		</SectionContainer>
 
 		
 		<SectionContainer id="experiencia" class="pb-10 md:pb-20">
-			<Experience t={es.experience}/>
+			<Experience t={en.experience}/>
 		</SectionContainer>
 		
 		<SectionContainer id="sobre-mi" class="md:pb-20">
@@ -34,11 +34,11 @@ import es from '../../i18n/en.json'
 		</SectionContainer>
 
 		<SectionContainer id="proyectos" class="pb-10">
-			<Projects t={es.projects}/>
+			<Projects t={en.projects}/>
 		</SectionContainer>
 
 		<SectionContainer id="postdata" class="pb-10 pt-20"> 
-			<Build t={es.build}/>
+			<Build t={en.build}/>
 		</SectionContainer>
 	</main>
 </Layout>

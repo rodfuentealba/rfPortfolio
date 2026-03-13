@@ -3,7 +3,7 @@ import BadgeLink from "../components/BadgeLink.astro";
 import MedalIcon from "../components/icons/Medal.astro";
 import Skill from "./Skill.astro";
 import SelfIcon from '../components/icons/Self.astro'
-import es from '../i18n/es.json'
+import en from '../i18n/en.json'
 
 const { t, a } = Astro.props;
 ---
@@ -85,5 +85,5 @@ const { t, a } = Astro.props;
             />
         </div>
     </div>
-    <Skill s={es.skill}/>
+    <Skill s={en.skill}/>
 </section>
