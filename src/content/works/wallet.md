@@ -1,6 +1,6 @@
 ---
-img: projects/projectsWallet.webp
-imgInside: ../projects/projectsWallet.webp
+img: projects/projectsWalletMobile.webp
+imgInside: ../projects/projectsWalletMobile.webp
 titleProduct: Wallet iCar
 titleDescription: "- Accede a tu documentación vehicular"
 titleDescription_en: "- Access your vehicle documentation"
