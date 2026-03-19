@@ -1,6 +1,7 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSwitch from "./LanguageSwitch.astro";
+import LogoRF from "./logos/LogoRF.astro";
 
 let scrolled = false;
 const { t } = Astro.props;
@@ -13,8 +14,8 @@ const { t } = Astro.props;
   id="navbar"
 >
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="#top" class="flex-auto items-center space-x-3">
-      <span class="text-lg"> > rod<span class="font-bold">Fuentealba</span></span>
+    <a href="#top" class="flex-auto items-center space-x-3 text-black dark:text-white">
+      <LogoRF class="h-8 w-auto" />
     </a>
       <button 
         id="menu-button" 
