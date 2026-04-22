@@ -35,6 +35,10 @@
     },
     "experience": {
         "name": "Experiencia Laboral",
+        "typeJob": {
+          "remote": "Remoto",
+          "hybrid": "Híbrido"
+        },
         "exp01": {
             "date1": "Junio 2015 - Octubre 2022",
             "exp1": "Encargado del area de diseño donde desarrolle un gran conocimiento en Sistemas de Diseño y Frontend al estar siempre en contacto con los mejores desarrolladores de la zona."
@@ -46,6 +50,14 @@
         "exp03": {
             "date1": "Octubre 2022 - Noviembre 2024",
             "exp1": "Fue por proyecto de un rebranding de la empresa, poder diseñar y desarrollar las web de sus productos y donde fui un miembro activo en el desarrollo de la app icarWallet"
+        },
+        "exp04": {
+            "date1": "Julio 2025 - Abril 2026",
+            "exp1": "Humani son cartas a partir de un modelo creado con agentes de IA. El objetivo era traspasar esa información a un modelo de tarjeta que sea impresa y legible para aplicar en un entorno real, mediante sistema de diseño propio que tenga relacion entre cartas, web y agente creador de Decks."
+        },
+        "exp05": {
+            "date1": "2023 - Actualidad",
+            "exp1": "Implementar la dirección de arte de una agencia de eventos en el ambito de la electrónica en el norte de Chile, proyectando trabajo de branding en general para generar un gran impacto visual en el público asistente a los eventos y en la imagen de la marca."
         },
         "download": "Descargar Carta Recomendación"
     },

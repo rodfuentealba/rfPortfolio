@@ -7,22 +7,49 @@ const { t } = Astro.props;
 
 const EXPERIENCE = [
     {
-        date: t.exp01.date1,
-        title: 'Senior Designer (UI/UX)',
-        company: 'JumpittLabs',
-        description: t.exp01.exp1,
+        date: t.exp05.date1,
+        title: 'Chief Designer',
+        company: 'GardenClub',
+        description: t.exp05.exp1,
+        job: t.typeJob.remote,
+        typeJob: 'remote',
+        link: 'https://www.instagram.com/gardenclub.cjc/'
     },
     {
-        date: t.exp02.date1,
-        title: 'User Interface Designer',
-        company: 'Sovos Autoriza',
-        description: t.exp02.exp1,
+        date: t.exp04.date1,
+        title: 'Product Designer',
+        company: 'Humani',
+        description: t.exp04.exp1,
+        job: t.typeJob.remote,
+        typeJob: 'remote',
+        link: 'https://serhumani.com/'
     },
     {
         date: t.exp03.date1,
         title: 'Senior Designer & Frontend',
         company: 'icar S.A',
         description: t.exp03.exp1,
+        job: t.typeJob.hybrid,
+        typeJob: 'hybrid',
+        link: 'https://www.icar.cl/'
+    },
+    {
+        date: t.exp02.date1,
+        title: 'User Interface Designer',
+        company: 'Sovos Autoriza',
+        description: t.exp02.exp1,
+        job: t.typeJob.hybrid,
+        typeJob: 'hybrid',
+        link: 'https://sovos.com/'
+    },
+    {
+        date: t.exp01.date1,
+        title: 'Senior Designer (UI/UX)',
+        company: 'JumpittLabs',
+        description: t.exp01.exp1,
+        job: t.typeJob.hybrid,
+        typeJob: 'hybrid',
+        link: 'https://www.instagram.com/jumpitt_cl/'
     }
 ] 
 
@@ -33,7 +60,7 @@ const EXPERIENCE = [
     {t.name}
 </h2>
 
-<ol class="flex flex-col md:grid md:grid-cols-3 md:gap-4" >
+<ol class="flex flex-col" >
     {
         EXPERIENCE.map(experience => (
             <li>

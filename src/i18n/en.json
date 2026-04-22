@@ -34,21 +34,33 @@
     "name": "Skills"
   },
   "experience": {
-    "name": "Work Experience",
-    "exp01": {
-      "date1": "June 2015 - October 2022",
-      "exp1": "Head of the design department where I developed strong knowledge in Design Systems and Frontend by working closely with top developers in the area."
+        "name": "Experiencia Laboral",
+        "typeJob": {
+          "remote": "Remote",
+          "hybrid": "Hybrid"
+        },
+        "exp01": {
+            "date1": "June 2015 - October 2022",
+            "exp1": "Head of the design area, where I developed strong expertise in Design Systems and Frontend by working closely with top developers in the region."
+        },
+        "exp02": {
+            "date1": "June 2020 - September 2022",
+            "exp1": "At Jumpitt, I was responsible for designing for Sovos Autoriza, creating a platform for selling Digital Certificates (covering all types of tax-related documents)."
+        },
+        "exp03": {
+            "date1": "October 2022 - November 2024",
+            "exp1": "Worked on a company rebranding project, designing and developing product websites, and actively contributing to the development of the icarWallet app."
+        },
+        "exp04": {
+            "date1": "July 2025 - April 2026",
+            "exp1": "Humani is a card-based system built from an AI-driven model. The goal was to translate that information into a printed, readable format for real-world use, supported by a custom design system connecting cards, web, and the deck-generating agent."
+        },
+        "exp05": {
+            "date1": "2023 - Present",
+            "exp1": "Leading the art direction for an electronic music event agency in northern Chile, driving branding efforts to create strong visual impact both at events and across the brand identity."
+        },
+        "download": "Download Recommendation Letter"
     },
-    "exp02": {
-      "date1": "June 2020 - September 2022",
-      "exp1": "Within Jumpitt, I was in charge of the designs for Sovos Autoriza, creating a platform for the sale of Digital Certificates (all kinds of tax documents)."
-    },
-    "exp03": {
-      "date1": "October 2022 - November 2024",
-      "exp1": "A rebranding project where I designed and developed websites for their products and actively contributed to the development of the icarWallet app."
-    },
-    "download": "Download Recommendation Letter"
-  },
   "projects": {
     "title": "Projects",
     "more": "Learn more",
