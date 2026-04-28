@@ -9,6 +9,7 @@ import Illustrator from './icons/Illustrator.astro'
 import Photoshop from './icons/Photoshop.astro'
 import Lovable from './icons/Lovable.astro';
 import Claude from './icons/Claude.astro';
+import Tailwind from './icons/Tailwind.astro';
 
 const TAGS = {
     FIGMA: {
@@ -74,11 +75,18 @@ const TAGS = {
         with:'width: 90%',
         valorate: '4.5'
     },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-sky-100 text-sky-400 dark:bg-sky-900 dark:text-sky-400",
+        icon: Tailwind,
+        with:'width: 95%',
+        valorate: '4.8'
+    }
 };
 
 const PILL = [
     {   
-        tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR, TAGS.LOVABLE, TAGS.CLAUDE]
+        tags: [TAGS.ADOBEAI, TAGS.ADOBEPS, TAGS.FIGMA, TAGS.NOTION, TAGS.REACT, TAGS.VUE, TAGS.ASTR,TAGS.TAILWIND, TAGS.LOVABLE, TAGS.CLAUDE]
     }
 ]
 
@@ -98,7 +106,7 @@ const { s } = Astro.props;
                         <span
                         class={`flex items-start rounded-full font-bold text-sm ${tag.class} py-2 px-3 `}
                         >
-                            <tag.icon class="size-4 mr-1" />
+                            {tag.icon && <tag.icon class="size-4 mr-1" />}
                             {tag.name}
                         </span>
 
