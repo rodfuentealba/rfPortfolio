@@ -2,39 +2,110 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import SectionContainer from "../../components/SectionContainer.astro";
+import LinkButton from "../../components/LinkButton.astro";
+import LinkButtonGithub from "../../components/LinkButtonGithub.astro";
+import Link from "../../components/icons/Link.astro";
+import GitHub from "../../components/icons/GitHub.astro";
+import Date from "../../components/icons/Date.astro";
+import Badge from "../../components/Badge.astro";
 
 export async function getStaticPaths() {
     const works = await getCollection("works");
 
     return works.map((work) => ({
-        params: { id: work.slug},
+        params: { id: work.slug },
         props: { work }
     }))
 }
 
-
 const { work } = Astro.props
 const { data, slug } = work
-const { img, imgInside, titleProduct, titleDescription, type, team, time, link } = data
+const { img, imgInside, titleProduct, titleDescription, titleDescription_en, description, description_en, type, team, time, time_en, tags, link, repo } = data
 
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const title = lang === 'en' ? (titleDescription_en ?? titleDescription) : titleDescription;
+const projectDescription = lang === 'en' ? (description_en ?? description) : description;
+const projectTime = lang === 'en' ? (time_en ?? time) : time;
+const pageTitle = lang === 'en' 
+    ? `${titleProduct} - UX/UI Case Study` 
+    : `${titleProduct} - Caso de Estudio UX/UI`;
+const pageDescription = lang === 'en'
+    ? `${titleProduct}: ${projectDescription.substring(0, 150)}...`
+    : `${titleProduct}: ${projectDescription.substring(0, 150)}...`;
 ---
 
 <Layout 
-	title={`Proyectos - ${titleProduct}`}
-	description="Contrata a rodfuentealba para darle vida a tus diseños tanto web como móviles o si necesitas generar contenido para RRSS.">
-    
-    <div>
-        <img
-        transition:name={`img-${slug}`}
-        alt={titleDescription}
-        class="object-cover object-top w-full h-138 transition duration-500 md:group-hover:scale-110"
-        loading="lazy"
-        src={imgInside}
-        />
-    </div>
+    title={pageTitle}
+    description={pageDescription}
+>
+    <main class="px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="mt-20">
+                <img
+                    transition:name={`img-${slug}`}
+                    alt={`${titleProduct} - ${title}`}
+                    class="object-cover object-top w-full h-auto rounded-xl"
+                    src={img}
+                />
+            </div>
 
-    <SectionContainer class="flex flex-col text-center items-center py-35 md:py-23 md:px-20">
-        <h1 class="text-7xl"> Product Design / Caso de Estudio</h1>
-        <h2 class="text-4xl"> 👨🏽‍💻 {titleProduct} {titleDescription}</h2>
-    </SectionContainer>
+            <SectionContainer class="flex flex-col items-start py-20">
+                <span class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Product Design / Caso de Estudio</span>
+                
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    {titleProduct}
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                    {title}
+                </p>
+
+                <div class="flex flex-wrap gap-3 mb-8">
+                    {type && (
+                        <Badge>{type}</Badge>
+                    )}
+                    {team && (
+                        <Badge>{lang === 'en' ? 'Team' : 'Equipo'}: {team}</Badge>
+                    )}
+                    {time && (
+                        <Badge>
+                            <Date class="size-4 mr-1" />
+                            {lang === 'en' ? 'Duration' : 'Duración'}: {projectTime}
+                        </Badge>
+                    )}
+                </div>
+
+                <div class="prose dark:prose-invert max-w-none mb-8">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        {projectDescription}
+                    </p>
+                </div>
+
+                {tags && tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        {tags.map((tag) => (
+                            <span class="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )}
+
+                <div class="flex gap-4">
+                    {link && (
+                        <LinkButton href={link}>
+                            <Link class="size-4" />
+                            {lang === 'en' ? 'Visit Project' : 'Visitar Proyecto'}
+                        </LinkButton>
+                    )}
+                    {repo && (
+                        <LinkButtonGithub href={repo}>
+                            <GitHub class="size-4" />
+                            GitHub
+                        </LinkButtonGithub>
+                    )}
+                </div>
+            </SectionContainer>
+        </div>
+    </main>
 </Layout>

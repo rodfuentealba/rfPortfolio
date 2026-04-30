@@ -18,7 +18,7 @@ import LinkButtonGithub from './LinkButtonGithub.astro';
 
 const allWorks = await getCollection('works')
 
-const workOrder = ['serHumani', 'baileinolvidable', 'wasteolas', 'notarisa', 'wallet', 'autorisa', 'riivi'];
+const workOrder = ['serHumani', 'wallet', 'notarisa', 'autorisa', 'riivi', 'baileinolvidable', 'wasteolas'];
 const works = allWorks.sort((a, b) => {
     const indexA = workOrder.indexOf(a.slug);
     const indexB = workOrder.indexOf(b.slug);
