@@ -3,14 +3,11 @@ import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSwitch from "./LanguageSwitch.astro";
 import LogoRF from "./logos/LogoRF.astro";
 
-let scrolled = false;
 const { t } = Astro.props;
 ---
 
 <nav 
-  class={`fixed top-0 z-20 w-full transition-all duration-300 ${
-    scrolled ? "bg-gray-900/80 backdrop-blur-lg" : "bg-transparent"
-  }`}
+  class="fixed top-0 z-20 w-full bg-transparent transition-all duration-300"
   id="navbar"
 >
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

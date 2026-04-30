@@ -1,48 +1,57 @@
-# Astro Starter Kit: Basics
+# Rodolfo Fuentealba - Portfolio
 
-```sh
-pnpm create astro@latest -- --template basics
+Portafolio personal de Rodolfo Fuentealba, Diseñador UX/UI & Frontend Developer con +9 años de experiencia, basado en Valparaíso, Chile.
+
+## Tecnologías
+
+- [Astro 5](https://astro.build/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- TypeScript
+- i18n (Español/Inglés)
+- View Transitions API
+- [Vercel Analytics](https://vercel.com/analytics)
+
+## Estructura
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── icons/
+│   │   └── logos/
+│   ├── content/
+│   │   └── works/
+│   ├── i18n/
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   ├── en/
+│   │   └── projects/
+│   └── styles/
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Comandos
 
-## 🧞 Commands
+Todos los comandos se ejecutan desde la raíz del proyecto:
 
-All commands are run from the root of the project, from a terminal:
+| Comando                | Descripción                                    |
+| :--------------------- | :--------------------------------------------- |
+| `pnpm install`         | Instala dependencias                           |
+| `pnpm dev`             | Inicia servidor local en `localhost:4321`      |
+| `pnpm build`           | Construye el sitio para producción en `./dist/`|
+| `pnpm preview`         | Previsualiza el build localmente               |
+| `pnpm check`           | Verifica tipos con Astro Check                 |
+| `pnpm astro ...`       | Ejecuta comandos CLI de Astro                  |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Idiomas
 
-## 👀 Want to learn more?
+El sitio soporta español (ES) e inglés (EN):
+- `/` - Versión en español
+- `/en` - Versión en inglés
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Deploy
+
+Desplegado en [rodfuentealba.com](https://www.rodfuentealba.com)

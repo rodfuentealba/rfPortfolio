@@ -1,14 +1,5 @@
-import typography from '@tailwindcss/typography'
+// Tailwind CSS v4 uses CSS-based configuration
+// This file is kept for compatibility but config is handled in src/styles/global.css
+// See: https://tailwindcss.com/docs/upgrade-guide#configuration
 
-  /** @type {import('tailwindcss').Config} */
-  module.exports = {
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	  darkMode: 'class',
-    theme: {
-      extend: {},
-    },
-    plugins: [
-      require('@tailwindcss/typography'), 
-    ],
-  };
-  
+export default {};

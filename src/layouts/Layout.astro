@@ -17,56 +17,43 @@ const { description, title } = Astro.props;
 
 const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
 const t = lang === 'en' ? en : es;
+const currentUrl = Astro.url.pathname;
+const canonicalUrl = `https://www.rodfuentealba.com${currentUrl}`;
+const ogDescription = lang === 'en' 
+  ? "UX/UI Designer & Frontend Developer with 9+ years of experience based in Valparaíso, Chile." 
+  : "Portafolio de Rodolfo Fuentealba, diseñador UX/UI & Frontend en Chile. Con más de 9 años de experiencia creando productos digitales y sistemas de diseño efectivos.";
+const ogTitle = lang === 'en' 
+  ? "rodFuentealba - UX/UI Designer & Frontend Developer" 
+  : "rodFuentealba - Diseñador UX/UI & Frontend";
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Portafolio de Rodolfo Fuentealba, diseñador UX/UI & Frontend en Chile. Con más de 9 años de experiencia creando productos digitales y sistemas de diseño efectivos." />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<link rel="canonical" href="https://www.rodfuentealba.com/" />
+		<link rel="canonical" href={canonicalUrl} />
 
 		<!-- Open Graph -->
-		<meta
-			property="og:title"
-			content="rodFuentealba - Diseñador UX/UI & Frontend"
-		/>
-		<meta
-			property="og:description"
-			content="Con +9 años de experiencia desde la ciudad de Valparaíso, Chile."
-		/>
-		<meta
-			property="og:image"
-			content="https://www.rodfuentealba.com/ogImage.jpg"
-		/>
+		<meta property="og:title" content={ogTitle} />
+		<meta property="og:description" content={ogDescription} />
+		<meta property="og:image" content="https://www.rodfuentealba.com/ogImage.jpg" />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.rodfuentealba.com" />
-		<meta property="og:image:alt" content="Portafolio de rodFuentealba - Diseñador UX/UI & Frontend con experiencia en diseño digital desde Valparaíso, Chile." />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image:alt" content={ogTitle} />
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta
-			name="twitter:title"
-			content="rodFuentealba - Diseñador UX/UI & Frontend"
-		/>
-		<meta
-			name="twitter:description"
-			content="Con +9 años de experiencia desde la ciudad de Valparaíso, Chile."
-		/>
-		<meta
-			name="twitter:image"
-			content="https://www.rodfuentealba.com/ogImage.png"
-		/>
-		<meta
-			name="twitter:image:alt"
-			content="Captura del portafolio de Rodolfo Fuentealba, diseñador UX/UI & Frontend en Valparaíso."
-		/>
+		<meta name="twitter:title" content={ogTitle} />
+		<meta name="twitter:description" content={ogDescription} />
+		<meta name="twitter:image" content="https://www.rodfuentealba.com/ogImage.png" />
+		<meta name="twitter:image:alt" content={ogTitle} />
 		<ClientRouter />
 	</head>
 
