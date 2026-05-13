@@ -8,9 +8,12 @@ const { t } = Astro.props;
 ---
 
 <nav 
-  class="fixed top-0 z-20 w-full bg-transparent transition-all duration-300"
+  class="fixed top-0 z-20 w-full bg-transparent transition-colors duration-300"
   id="navbar"
 >
+  <style is:inline>
+    #navbar-logo, #navbar-actions, .nav-item { opacity: 0; }
+  </style>
   <div class="relative max-w-screen-xl flex items-center justify-between mx-auto pl-0 pr-4 md:px-4 py-4">
     <a href="#top" id="navbar-logo" class="flex items-center text-black dark:text-white max-md:ml-3">
       <LogoRF class="h-8 w-auto max-md:hidden" />
@@ -71,21 +74,28 @@ const { t } = Astro.props;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
   let menuTween: gsap.core.Timeline | null = null
 
+  gsap.set(["#navbar-logo", "#navbar-actions", ".nav-item"], { opacity: 0 })
+  if (window.innerWidth >= 768) {
+    gsap.set(".nav-item", { y: -20 })
+  }
+  gsap.set("#navbar-logo", { x: -60 })
+  gsap.set("#navbar-actions", { x: 60 })
+
   function animateHeaderEntrance() {
     if (reducedMotion) {
-      gsap.set(["#navbar-logo", "#navbar-actions", ".nav-item"], { opacity: 1 })
+      gsap.set(["#navbar-logo", "#navbar-actions", ".nav-item"], { opacity: 1, x: 0, y: 0 })
       return
     }
 
     const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } })
 
-    tl.fromTo("#navbar-logo", { x: -60, opacity: 0 }, { x: 0, opacity: 1 })
+    tl.to("#navbar-logo", { x: 0, opacity: 1 })
 
     if (window.innerWidth >= 768) {
-      tl.fromTo(".nav-item", { y: -20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08 }, "-=0.3")
+      tl.to(".nav-item", { y: 0, opacity: 1, stagger: 0.08 }, "-=0.3")
     }
 
-    tl.fromTo("#navbar-actions", { x: 60, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.3")
+    tl.to("#navbar-actions", { x: 0, opacity: 1 }, "-=0.3")
   }
 
   function openMobileMenu() {
