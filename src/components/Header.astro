@@ -8,7 +8,7 @@ const { t } = Astro.props;
 ---
 
 <nav 
-  class="fixed top-0 z-20 w-full bg-transparent transition-colors duration-300"
+  class="fixed top-0 z-20 w-full bg-transparent transition-colors duration-300 overflow-x-hidden"
   id="navbar"
 >
   <style is:inline>
@@ -70,16 +70,19 @@ const { t } = Astro.props;
 
 <script>
   import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
   let menuTween: gsap.core.Timeline | null = null
 
   gsap.set(["#navbar-logo", "#navbar-actions", ".nav-item"], { opacity: 0 })
   if (window.innerWidth >= 768) {
-    gsap.set(".nav-item", { y: -20 })
+    gsap.set(".nav-item", { y: -10 })
   }
-  gsap.set("#navbar-logo", { x: -60 })
-  gsap.set("#navbar-actions", { x: 60 })
+  gsap.set("#navbar-logo", { x: -20 })
+  gsap.set("#navbar-actions", { x: 20 })
 
   function animateHeaderEntrance() {
     if (reducedMotion) {
@@ -87,7 +90,7 @@ const { t } = Astro.props;
       return
     }
 
-    const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } })
+    const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" }, onComplete: () => ScrollTrigger.refresh() })
 
     tl.to("#navbar-logo", { x: 0, opacity: 1 })
 

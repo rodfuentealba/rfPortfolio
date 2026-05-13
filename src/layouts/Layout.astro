@@ -62,11 +62,11 @@ const ogTitle = lang === 'en'
 		class="relative bg-white dark:bg-neutral-950 text-dark dark:text-white"
 	>
 		<div
-			class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(252,175,238,0.7),rgba(255,255,255,0))] dark:hidden"
+			class="absolute top-0 z-[-2] h-screen w-full bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(252,175,238,0.7),rgba(255,255,255,0))] dark:hidden"
 		>
 		</div>
 		<div
-			class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] hidden dark:block"
+			class="absolute top-0 z-[-2] h-screen w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))] hidden dark:block"
 		>
 		</div>
 		<Header t={t.navbar} />
@@ -87,8 +87,10 @@ const ogTitle = lang === 'en'
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
-		overscroll-behavior: none;
+		min-height: 100dvh;
 	}
+
+	[data-reveal] { opacity: 0; }
 
 	@media (prefers-reduce-motion: reduce) {
 		html {
