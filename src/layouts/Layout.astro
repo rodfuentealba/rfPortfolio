@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
-import Analytics from '@vercel/analytics/astro';
+import Analytics from "@vercel/analytics/astro";
 import "@fontsource-variable/onest";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
@@ -16,16 +16,18 @@ interface Props {
 
 const { description, title } = Astro.props;
 
-const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
-const t = lang === 'en' ? en : es;
+const lang = Astro.url.pathname.startsWith("/en") ? "en" : "es";
+const t = lang === "en" ? en : es;
 const currentUrl = Astro.url.pathname;
 const canonicalUrl = `https://www.rodfuentealba.com${currentUrl}`;
-const ogDescription = lang === 'en' 
-  ? "UX/UI Designer & Frontend Developer with 9+ years of experience based in Valparaíso, Chile." 
-  : "Portafolio de Rodolfo Fuentealba, diseñador UX/UI & Frontend en Chile. Con más de 9 años de experiencia creando productos digitales y sistemas de diseño efectivos.";
-const ogTitle = lang === 'en' 
-  ? "rodFuentealba - UX/UI Designer & Frontend Developer" 
-  : "rodFuentealba - Diseñador UX/UI & Frontend";
+const ogDescription =
+	lang === "en"
+		? "UX/UI Designer & Frontend Developer with 9+ years of experience based in Valparaíso, Chile."
+		: "Portafolio de Rodolfo Fuentealba, diseñador UX/UI & Frontend en Chile. Con más de 9 años de experiencia creando productos digitales y sistemas de diseño efectivos.";
+const ogTitle =
+	lang === "en"
+		? "rodFuentealba - UX/UI Designer & Frontend Developer"
+		: "rodFuentealba - Diseñador UX/UI & Frontend";
 ---
 
 <!doctype html>
@@ -42,7 +44,10 @@ const ogTitle = lang === 'en'
 		<!-- Open Graph -->
 		<meta property="og:title" content={ogTitle} />
 		<meta property="og:description" content={ogDescription} />
-		<meta property="og:image" content="https://www.rodfuentealba.com/ogImage.jpg" />
+		<meta
+			property="og:image"
+			content="https://www.rodfuentealba.com/ogImage.jpg"
+		/>
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 		<meta property="og:type" content="website" />
@@ -53,7 +58,10 @@ const ogTitle = lang === 'en'
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={ogTitle} />
 		<meta name="twitter:description" content={ogDescription} />
-		<meta name="twitter:image" content="https://www.rodfuentealba.com/ogImage.png" />
+		<meta
+			name="twitter:image"
+			content="https://www.rodfuentealba.com/ogImage.png"
+		/>
 		<meta name="twitter:image:alt" content={ogTitle} />
 		<ClientRouter />
 	</head>
@@ -90,7 +98,9 @@ const ogTitle = lang === 'en'
 		min-height: 100dvh;
 	}
 
-	[data-reveal] { opacity: 0; }
+	[data-reveal] {
+		opacity: 0;
+	}
 
 	@media (prefers-reduce-motion: reduce) {
 		html {
