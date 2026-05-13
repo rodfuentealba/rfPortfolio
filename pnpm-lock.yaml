@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^5.7.12
         version: 5.7.12(@types/node@24.12.0)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.9)(typescript@5.9.3)(yaml@2.8.3)
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.9
@@ -1047,6 +1050,9 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   h3@1.15.1:
     resolution: {integrity: sha512-+ORaOBttdUm1E2Uu/obAyCguiI7MbBvsLTndc3gyK3zU+SYLoZXlyCP9Xgy0gikkGufFLTZXCXD6+4BsufnmHA==}
@@ -2984,6 +2990,8 @@ snapshots:
   github-slugger@2.0.0: {}
 
   graceful-fs@4.2.11: {}
+
+  gsap@3.15.0: {}
 
   h3@1.15.1:
     dependencies:

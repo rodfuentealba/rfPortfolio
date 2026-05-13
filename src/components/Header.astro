@@ -2,6 +2,7 @@
 import ThemeToggle from "./ThemeToggle.astro";
 import LanguageSwitch from "./LanguageSwitch.astro";
 import LogoRF from "./logos/LogoRF.astro";
+import LogoRFIcon from "./logos/LogoRFIcon.astro";
 
 const { t } = Astro.props;
 ---
@@ -10,93 +11,165 @@ const { t } = Astro.props;
   class="fixed top-0 z-20 w-full bg-transparent transition-all duration-300"
   id="navbar"
 >
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="#top" class="flex-auto items-center space-x-3 text-black dark:text-white">
-      <LogoRF class="h-8 w-auto" />
+  <div class="relative max-w-screen-xl flex items-center justify-between mx-auto pl-0 pr-4 md:px-4 py-4">
+    <a href="#top" id="navbar-logo" class="flex items-center text-black dark:text-white max-md:ml-3">
+      <LogoRF class="h-8 w-auto max-md:hidden" />
+      <LogoRFIcon class="h-10 w-auto md:hidden" />
     </a>
-      <button 
-        id="menu-button" 
-        class="relative z-50 flex flex-col gap-1 w-10 h-10 justify-center items-center md:hidden"
-        aria-expanded="false"
-      >
-        <span class="bg-black dark:bg-white rounded block h-[3px] w-6 transition-transform duration-300 origin-center"></span>
-        <span class="bg-black dark:bg-white rounded block h-[3px] w-6 transition-opacity duration-300"></span>
-        <span class="bg-black dark:bg-white rounded block h-[3px] w-6 transition-transform duration-300 origin-center"></span>
-      </button>
 
-
-      <div class="sm:order-3">
-        <ThemeToggle />
-        <LanguageSwitch />
-      </div>
-      
-      <div id="navbar-menu" class="hidden sm:order-2 w-full md:block md:w-auto transform transition-all duration-300 ease-in-out scale-95">
-        <ul class="flex flex-row justify-between md:flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
-          <li class="hover:scale-105">
+      <!-- Desktop nav -->
+      <div id="navbar-menu" class="hidden md:block md:order-1 md:mx-auto">
+        <ul class="flex flex-row items-center gap-6 p-4 md:p-0 mt-4 md:mt-0">
+          <li class="nav-item hover:scale-105">
               <a href="#top" class="hover:text-semibold hover:text-yellow-500 hover:scale-105">{t.home}</a>
           </li>
-          <li class="hover:scale-105">
+          <li class="nav-item hover:scale-105">
               <a href="#sobre-mi" class="hover:text-semibold hover:text-yellow-500">{t.about}</a>
           </li>
-          <li class="hover:scale-105">
+          <li class="nav-item hover:scale-105">
               <a href="#experiencia" class="hover:text-semibold hover:text-yellow-500">{t.experiences}</a>
           </li>
-          <li class="hover:scale-105">
+          <li class="nav-item hover:scale-105">
               <a href="#logotype" class="hover:text-semibold hover:text-yellow-500">{t.logotypes}</a>
           </li>
-          <li class="hover:scale-105">
+          <li class="nav-item hover:scale-105">
               <a href="#proyectos" class="hover:text-semibold hover:text-yellow-500">{t.projects}</a>
           </li>
         </ul>
       </div>
+
+      <div id="navbar-actions" class="flex items-center gap-1 md:order-2 max-md:pr-12">
+        <ThemeToggle />
+        <LanguageSwitch />
+      </div>
+
+      <!-- Mobile overlay menu -->
+      <div id="mobile-menu" class="hidden fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-lg md:hidden" aria-hidden="true">
+        <a href="#top" class="mobile-nav-item text-3xl font-bold text-gray-900 dark:text-white hover:text-yellow-500 transition-colors">{t.home}</a>
+        <a href="#sobre-mi" class="mobile-nav-item text-3xl font-bold text-gray-900 dark:text-white hover:text-yellow-500 transition-colors">{t.about}</a>
+        <a href="#experiencia" class="mobile-nav-item text-3xl font-bold text-gray-900 dark:text-white hover:text-yellow-500 transition-colors">{t.experiences}</a>
+        <a href="#logotype" class="mobile-nav-item text-3xl font-bold text-gray-900 dark:text-white hover:text-yellow-500 transition-colors">{t.logotypes}</a>
+        <a href="#proyectos" class="mobile-nav-item text-3xl font-bold text-gray-900 dark:text-white hover:text-yellow-500 transition-colors">{t.projects}</a>
+      </div>
+
+      <button 
+        id="menu-button" 
+        class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-1 w-8 h-8 justify-center items-center md:hidden z-50"
+        aria-expanded="false"
+      >
+        <span class="bg-black dark:bg-white rounded block h-[3px] w-5 transition-transform duration-300 origin-center"></span>
+        <span class="bg-black dark:bg-white rounded block h-[3px] w-5 transition-opacity duration-300"></span>
+        <span class="bg-black dark:bg-white rounded block h-[3px] w-5 transition-transform duration-300 origin-center"></span>
+      </button>
       
   </div>
 </nav>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuButton = document.getElementById("menu-button");
-    const navbarMenu = document.getElementById("navbar-menu");
-    const navbar = document.getElementById("navbar");
+  import { gsap } from "gsap"
 
-    if (!menuButton || !navbarMenu || !navbar) return;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  let menuTween: gsap.core.Timeline | null = null
 
-    // Función para manejar el menú hamburguesa
-    menuButton.addEventListener("click", () => {
-      const isOpen = navbarMenu.classList.contains("hidden");
+  function animateHeaderEntrance() {
+    if (reducedMotion) {
+      gsap.set(["#navbar-logo", "#navbar-actions", ".nav-item"], { opacity: 1 })
+      return
+    }
 
-      // Toggle menú
-      if (isOpen) {
-        navbarMenu.classList.remove("hidden");
-        setTimeout(() => {
-          navbarMenu.classList.add("opacity-100", "scale-100");
-          navbarMenu.classList.remove("opacity-0", "scale-95");
-        }, 10);
-      } else {
-        navbarMenu.classList.add("opacity-0", "scale-95");
-        navbarMenu.classList.remove("opacity-100", "scale-100", "opacity-0");
-        setTimeout(() => {
-          navbarMenu.classList.add("hidden");
-        }, 300);
+    const tl = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" } })
+
+    tl.fromTo("#navbar-logo", { x: -60, opacity: 0 }, { x: 0, opacity: 1 })
+
+    if (window.innerWidth >= 768) {
+      tl.fromTo(".nav-item", { y: -20, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08 }, "-=0.3")
+    }
+
+    tl.fromTo("#navbar-actions", { x: 60, opacity: 0 }, { x: 0, opacity: 1 }, "-=0.3")
+  }
+
+  function openMobileMenu() {
+    if (menuTween) menuTween.kill()
+
+    const overlay = document.getElementById("mobile-menu")
+    if (!overlay) return
+    const items = overlay.querySelectorAll(".mobile-nav-item")
+
+    overlay.classList.remove("hidden")
+    overlay.setAttribute("aria-hidden", "false")
+    document.body.style.overflow = "hidden"
+
+    const tl = gsap.timeline({
+      defaults: { duration: 0.5, ease: "power3.out" },
+      onReverseComplete: () => {
+        overlay.classList.add("hidden")
+        overlay.setAttribute("aria-hidden", "true")
+        document.body.style.overflow = ""
       }
+    })
 
-      // Animación del ícono de hamburguesa a "X"
-      const spans = menuButton.querySelectorAll("span");
-      spans[0].classList.toggle("rotate-45", isOpen);
-      spans[0].classList.toggle("translate-y-[7px]", isOpen);
-      spans[1].classList.toggle("opacity-0", isOpen);
-      spans[2].classList.toggle("-rotate-45", isOpen);
-      spans[2].classList.toggle("-translate-y-[7px]", isOpen);
-    });
+    tl.fromTo(overlay, { opacity: 0 }, { opacity: 1 })
+    tl.fromTo(items, { y: 50, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.07 }, "-=0.2")
+    menuTween = tl
+  }
 
-    // Función para cambiar el background del navbar en scroll
+  function closeMobileMenu() {
+    if (!menuTween) return
+    menuTween.reverse()
+  }
+
+  function toggleMobileMenu() {
+    const overlay = document.getElementById("mobile-menu")
+    if (!overlay) return
+    const isOpen = overlay.getAttribute("aria-hidden") === "false"
+
+    if (isOpen) closeMobileMenu()
+    else openMobileMenu()
+
+    const btn = document.getElementById("menu-button")
+    if (!btn) return
+    const spans = btn.querySelectorAll("span")
+    spans[0].classList.toggle("rotate-45")
+    spans[0].classList.toggle("translate-y-[7px]")
+    spans[1].classList.toggle("opacity-0")
+    spans[2].classList.toggle("-rotate-45")
+    spans[2].classList.toggle("-translate-y-[7px]")
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    animateHeaderEntrance()
+
+    const menuButton = document.getElementById("menu-button")
+    const navbar = document.getElementById("navbar")
+    const overlay = document.getElementById("mobile-menu")
+
+    if (!menuButton || !navbar || !overlay) return
+
+    menuButton.addEventListener("click", toggleMobileMenu)
+
+    // Close menu on link click
+    overlay.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        if (overlay.getAttribute("aria-hidden") === "false") {
+          closeMobileMenu()
+          const spans = menuButton.querySelectorAll("span")
+          spans[0].classList.remove("rotate-45", "translate-y-[7px]")
+          spans[1].classList.remove("opacity-0")
+          spans[2].classList.remove("-rotate-45", "-translate-y-[7px]")
+        }
+      })
+    })
+
+    // Scroll effect
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
-        navbar.classList.add("bg-gray-900/90", "backdrop-blur-sm");
+        navbar.classList.add("bg-gray-900/90", "backdrop-blur-sm")
       } else {
-        navbar.classList.remove("bg-gray-900/90", "backdrop-blur-sm");
+        navbar.classList.remove("bg-gray-900/90", "backdrop-blur-sm")
       }
-    });
-  });
+    })
+  })
+
+  document.addEventListener("astro:page-load", animateHeaderEntrance)
 </script>
 

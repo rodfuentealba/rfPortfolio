@@ -11,6 +11,7 @@ const { t } = Astro.props;
     src="/profileAvatar.webp"
     alt="mockup"
     class="size-50 md:size-80 maskImg"
+    data-reveal
 />
 
 <a
@@ -25,11 +26,64 @@ const { t } = Astro.props;
     >
 </a>
 
-<h1 class="text-4xl md:text-4xl lg:text-6xl font-bold">
+<h1 id="hero-title" class="text-4xl md:text-4xl lg:text-6xl font-bold">
     {t.greeting} {t.name}
 </h1>
 
-<h2 class="text-2xl text-wrap md:w-150 mt-6">
+<script>
+  import { gsap } from "gsap"
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  function animateTitle() {
+    const el = document.getElementById("hero-title")
+    if (!el || el.dataset.animated) return
+    el.dataset.animated = "true"
+
+    const text = el.textContent || ""
+    el.innerHTML = ""
+
+    text.split("").forEach((char) => {
+      const span = document.createElement("span")
+      span.textContent = char === " " ? "\u00A0" : char
+      span.style.display = "inline-block"
+      el.appendChild(span)
+    })
+
+    if (reducedMotion) return
+
+    const dirs = [
+      { x: -50, y: -30, rot: -25, scale: 0.3 },
+      { x: 50, y: -40, rot: 30, scale: 0.2 },
+      { x: 0, y: -60, rot: 15, scale: 0.4 },
+      { x: -40, y: 50, rot: -35, scale: 0.3 },
+      { x: 40, y: 40, rot: 20, scale: 0.5 },
+      { x: -30, y: -50, rot: -15, scale: 0.2 },
+      { x: 30, y: 50, rot: 40, scale: 0.4 },
+    ]
+
+    gsap.fromTo(el.children, 
+      {
+        opacity: 0,
+        x: (i) => dirs[i % dirs.length].x,
+        y: (i) => dirs[i % dirs.length].y,
+        rotation: (i) => dirs[i % dirs.length].rot,
+        scale: (i) => dirs[i % dirs.length].scale,
+      },
+      { 
+        opacity: 1, x: 0, y: 0, rotation: 0, scale: 1,
+        duration: 0.55,
+        stagger: { each: 0.03, from: "start" },
+        ease: "power4.out",
+      }
+    )
+  }
+
+  document.addEventListener("DOMContentLoaded", animateTitle)
+  document.addEventListener("astro:page-load", animateTitle)
+</script>
+
+<h2 class="text-2xl text-wrap md:w-150 mt-6" data-reveal data-reveal-delay="0.3">
     <span class="text-purple-800 dark:text-purple-400/90"
         >{t.title}</span
     >
@@ -82,7 +136,7 @@ const { t } = Astro.props;
     </div>
 </h2>
 
-<nav class="flex justify-center gap-2 mt-8 flex-wrap">
+<nav class="flex justify-center gap-2 mt-8 flex-wrap" data-reveal data-reveal-delay="0.45">
     <SocialPill href="https://www.linkedin.com/in/rodfuentealba/">
         <LinkedInIcon class="size-4 md:size-5" />
         LinkedIn

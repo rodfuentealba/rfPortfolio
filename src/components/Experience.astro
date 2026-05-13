@@ -47,22 +47,22 @@ const EXPERIENCE = [
 
 ---
 
-<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center">
+<h2 class="text-2xl font-semibold mb-10 flex gap-x-2 items-center" data-reveal>
     <BriefcaseIcon class="size-6"/>
     {t.name}
 </h2>
 
 <ol class="flex flex-col" >
     {
-        EXPERIENCE.map(experience => (
-            <li>
+        EXPERIENCE.map((experience, i) => (
+            <li data-reveal data-reveal-delay={i * 0.1}>
                 <ExperienceItem {...experience} />
             </li>
         ))
     }
 </ol>
 
-<div class="flex justify-center mt-10">
+<div class="flex justify-center mt-10" data-reveal>
     <a href="https://drive.google.com/file/d/1DlhIvuHNuYXKP9RlADyfvVoTb_7Vmvyf/view?usp=sharing" target="_blank">
         <button type="button" class="hover:cursor-pointer flex items-center animate-bounce gap-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
             <DownloadIcon/>

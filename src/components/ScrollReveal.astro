@@ -1,0 +1,49 @@
+<script>
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  const reducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  function initReveal() {
+    const reveals = document.querySelectorAll("[data-reveal]")
+    if (!reveals.length) return
+
+    if (reducedMotion) {
+      reveals.forEach((el) => gsap.set(el, { opacity: 1, x: 0, y: 0 }))
+      return
+    }
+
+    reveals.forEach((el) => {
+      const direction = el.getAttribute("data-reveal-direction") ?? "up"
+      const delay = parseFloat(el.getAttribute("data-reveal-delay") ?? "0") || 0
+      const distance = parseInt(el.getAttribute("data-reveal-distance") ?? "60") || 60
+
+      const vars = { opacity: 1, y: 0, x: 0 }
+      const fromVars = { opacity: 0, y: 0, x: 0 }
+
+      if (direction === "up") fromVars.y = distance
+      else if (direction === "down") fromVars.y = -distance
+      else if (direction === "left") fromVars.x = distance
+      else if (direction === "right") fromVars.x = -distance
+
+      gsap.fromTo(el, fromVars, {
+        ...vars,
+        duration: 0.7,
+        delay,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          end: "top 30%",
+          toggleActions: "play none none reverse",
+        },
+      })
+    })
+  }
+
+  initReveal()
+
+  document.addEventListener("astro:page-load", initReveal)
+</script>
